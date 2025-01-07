@@ -1,0 +1,11 @@
+{
+    "name": "jkarnas/my-mind",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
