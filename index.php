@@ -23,5 +23,9 @@ $router->post("/register", "RegisterController@userRegister");
 $router->get("/login", "LoginController@loginRender");
 $router->post("/login", "LoginController@userLogin");
 
+$router->get("/main", "MainController@mainRender");
+$router->get("/logout", "LoginController@logout");
+
+
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $router->dispatch($uri);

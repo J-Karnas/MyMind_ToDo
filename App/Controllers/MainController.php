@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\View\View;
 use App\Controllers\AbstractController;
+use App\View\View;
 
-class HomeController extends AbstractController
+class MainController extends AbstractController
 {
-    public function homeRender(): Void
+    public function mainRender(): Void
     {
         if (isset($_SESSION['status']) && $_SESSION['status'] = "login") {
-            $this->forwarding("/main");
+            (new View())->viewer("main");
         } else {
-            (new View())->viewer("home");
+            $this->forwarding("/login");
         }
     }
 }

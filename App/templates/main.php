@@ -8,7 +8,11 @@
 </head>
 
 <body>
-    hello
+    <?php errorhand('error') ?>
+
+    Strona główna
+
+    <a href="logout"> wyloguj się</a>
 </body>
 
 </html>

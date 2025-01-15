@@ -11,7 +11,7 @@
 
     <?php errorhand('error') ?>
 
-    <form action="/register" method="post">
+    <form action="/login" method="post">
         <input type="text" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Hasło" required>
         <button type="submit">Zaloguj się</button>
