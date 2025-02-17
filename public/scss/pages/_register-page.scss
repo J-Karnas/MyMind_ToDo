@@ -1,0 +1,48 @@
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid $main-color;
+    border-radius: $border-radius-small;
+    padding: 40px;
+  }
+
+  &__title {
+    font-size: $fs-medium-title;
+    font-weight: 400;
+    margin-bottom: 15px;
+  }
+
+  &__input {
+    width: 260px;
+    margin-bottom: 10px;
+  }
+
+  &__btn {
+    margin-top: 5px;
+  }
+
+  &__description {
+    display: none;
+    padding-top: 15px;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      display: inline;
+    }
+
+    &--grey {
+      color: $grey-text-color;
+    }
+  }
+
+  &__login-btn {
+    text-decoration: none;
+  }
+}

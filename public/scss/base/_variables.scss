@@ -1,0 +1,24 @@
+$font-family: "Inter", serif;
+$main-color: #0c0b0b;
+$bg-color: #ffffff;
+$main-bg-color: #cccccc;
+$grey-text-color: rgba(12, 11, 11, 0.5);
+$alt-text-color: #ffffff;
+
+$border-radius-small: 15px;
+$border-radius-large: 30px;
+
+//Desktop:
+$fs-default: 1rem;
+$fs-small-title: 1.2rem;
+$fs-medium-title: 1.5rem;
+$fs-max-title: 2rem;
+
+//Mobile:
+$fs-text-m: 1rem; //może do zmianny
+$fs-small-title-m: 1.1rem;
+$fs-medium-title-m: 1.3rem;
+$fs-max-title-m: 1.5rem;
+
+//beakpoints
+$breakpoint-mobile: 600px;

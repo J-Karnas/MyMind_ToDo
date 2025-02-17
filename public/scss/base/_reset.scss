@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+  font-family: $font-family;
+  color: $main-color;
+  font-weight: 300;
+}
+
+a,
+p,
+button,
+h1,
+h2 {
+  font-size: $fs-default;
+  font-family: $font-family;
+  color: $main-color;
+}
+
+a,
+p,
+button {
+  font-weight: 300;
+}
+
+h1,
+h2 {
+  font-weight: 400;
+}
