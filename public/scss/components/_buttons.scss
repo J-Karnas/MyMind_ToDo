@@ -1,0 +1,17 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-color;
+  padding: 8px 30px;
+  text-decoration: none;
+  border: 1px solid $main-color;
+  border-radius: $border-radius-large;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    color: $alt-text-color;
+    background-color: $main-color;
+  }
+}

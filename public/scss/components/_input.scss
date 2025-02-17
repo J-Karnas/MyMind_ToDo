@@ -1,0 +1,10 @@
+.input {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 300;
+  background-color: $bg-color;
+  color: $main-color;
+  padding: 8px 15px;
+  border: 1px solid $main-color;
+  border-radius: $border-radius-small;
+}

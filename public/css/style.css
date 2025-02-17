@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+  font-family: "Inter", serif;
+  color: #0c0b0b;
+  font-weight: 300;
+}
+
+a,
+p,
+button,
+h1,
+h2 {
+  font-size: 1rem;
+  font-family: "Inter", serif;
+  color: #0c0b0b;
+}
+
+a,
+p,
+button {
+  font-weight: 300;
+}
+
+h1,
+h2 {
+  font-weight: 400;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 8px 30px;
+  text-decoration: none;
+  border: 1px solid #0c0b0b;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button:hover {
+  color: #ffffff;
+  background-color: #0c0b0b;
+}
+
+.input {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 300;
+  background-color: #ffffff;
+  color: #0c0b0b;
+  padding: 8px 15px;
+  border: 1px solid #0c0b0b;
+  border-radius: 15px;
+}
+
+.header-logout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #0c0b0b;
+  height: 60px;
+  padding: 0 20px;
+}
+.header-logout__title {
+  font-size: 2rem;
+  line-height: 60px;
+}
+@media only screen and (max-width: 600px) {
+  .header-logout__title {
+    font-size: 1.5rem;
+  }
+}
+.header-logout__login {
+  margin-right: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .header-logout__login--hidden {
+    display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .header-logout__register--hidden {
+    display: none;
+  }
+}
+
+.welcome-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+.welcome-page__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #0c0b0b;
+  height: 60px;
+  padding: 0 20px;
+}
+.welcome-page__title {
+  font-size: 2rem;
+  line-height: 60px;
+  padding-left: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .welcome-page__title {
+    font-size: 1.5rem;
+    padding-left: 10px;
+  }
+}
+.welcome-page__content {
+  text-align: center;
+}
+.welcome-page__subtitle {
+  font-size: 2rem;
+}
+@media only screen and (max-width: 600px) {
+  .welcome-page__subtitle {
+    font-size: 1.5rem;
+  }
+}
+.welcome-page__description {
+  font-size: 1.2rem;
+  padding: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .welcome-page__description {
+    font-size: 1.1rem;
+  }
+}
+.welcome-page__actions {
+  display: flex;
+  flex-direction: row;
+}
+@media only screen and (max-width: 600px) {
+  .welcome-page__actions {
+    flex-direction: column;
+  }
+}
+.welcome-page__register {
+  padding: 10px 20px;
+}
+.welcome-page__register-text {
+  padding-bottom: 10px;
+}
+.welcome-page__login {
+  padding: 10px 20px;
+}
+.welcome-page__login-text {
+  padding-bottom: 10px;
+}
+
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+.register-page__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #0c0b0b;
+  border-radius: 15px;
+  padding: 40px;
+}
+.register-page__title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.register-page__input {
+  width: 260px;
+  margin-bottom: 10px;
+}
+.register-page__btn {
+  margin-top: 5px;
+}
+.register-page__description {
+  display: none;
+  padding-top: 15px;
+}
+@media only screen and (max-width: 600px) {
+  .register-page__description {
+    display: inline;
+  }
+}
+.register-page__description--grey {
+  color: rgba(12, 11, 11, 0.5);
+}
+.register-page__login-btn {
+  text-decoration: none;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+.login-page__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #0c0b0b;
+  border-radius: 15px;
+  padding: 40px;
+}
+@media only screen and (max-width: 600px) {
+  .login-page__form {
+    padding: 40px 25px;
+  }
+}
+.login-page__title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.login-page__input {
+  width: 260px;
+  margin-bottom: 10px;
+}
+.login-page__btn {
+  margin-top: 5px;
+}
+.login-page__description {
+  display: none;
+  padding-top: 15px;
+}
+@media only screen and (max-width: 600px) {
+  .login-page__description {
+    display: inline;
+  }
+}
+.login-page__description--grey {
+  color: rgba(12, 11, 11, 0.5);
+}
+.login-page__login-btn {
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */

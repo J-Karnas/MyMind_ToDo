@@ -1,0 +1,68 @@
+.welcome-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid $main-color;
+    height: 60px;
+    padding: 0 20px;
+  }
+  &__title {
+    font-size: $fs-max-title;
+    line-height: 60px;
+    padding-left: 20px;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      font-size: $fs-max-title-m;
+      padding-left: 10px;
+    }
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-size: $fs-max-title;
+    @media only screen and (max-width: $breakpoint-mobile) {
+      font-size: $fs-max-title-m;
+    }
+  }
+
+  &__description {
+    font-size: $fs-small-title;
+    padding: 10px;
+    @media only screen and (max-width: $breakpoint-mobile) {
+      font-size: $fs-small-title-m;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+    }
+  }
+  &__register {
+    padding: 10px 20px;
+  }
+  &__register-text {
+    padding-bottom: 10px;
+  }
+
+  &__login {
+    padding: 10px 20px;
+  }
+  &__login-text {
+    padding-bottom: 10px;
+  }
+}
