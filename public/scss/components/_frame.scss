@@ -1,0 +1,6 @@
+.frame {
+  display: inline-flex;
+  flex-direction: column;
+  border: 1px solid $main-color;
+  border-radius: $border-radius-x-small;
+}

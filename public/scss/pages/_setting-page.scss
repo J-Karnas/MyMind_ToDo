@@ -1,0 +1,74 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: $fs-medium-title;
+    font-weight: 300;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid $main-color;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      font-size: $fs-medium-title-m;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 340px;
+    padding: 20px;
+    margin: 20px;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      margin: 10px 20px;
+    }
+
+    &--btn {
+      align-self: flex-start;
+    }
+  }
+
+  &__subtitle {
+    width: 100%;
+    font-size: $fs-small-title;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      font-size: $fs-small-title-m;
+    }
+  }
+
+  &__input {
+    margin: 10px auto;
+    width: 95%;
+  }
+
+  &__btn {
+    margin: 10px auto;
+    width: 40%;
+  }
+
+  &__button {
+    &--pl,
+    &--en,
+    &--bright,
+    &--dark {
+      margin-top: 20px;
+      height: 36.8px;
+    }
+
+    &--dark {
+      background-color: $main-bg-color;
+    }
+  }
+}

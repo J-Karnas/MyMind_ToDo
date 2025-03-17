@@ -23,9 +23,39 @@ $router->post("/register", "RegisterController@userRegister");
 $router->get("/login", "LoginController@loginRender");
 $router->post("/login", "LoginController@userLogin");
 
+//main
 $router->get("/main", "MainController@mainRender");
-$router->get("/logout", "LoginController@logout");
 
+//settings
+$router->get("/settings", "SettingsController@settingsRender");
+
+//viewTasks
+$router->get("/viewTasks", "ViewTasksController@viewTasksRender");
+
+//viewCategories
+$router->get("/viewCategories", "ViewCategoriesController@viewCategoriesRender");
+
+//today
+$router->get("/today", "todayController@todayRender");
+
+//upcoming
+$router->get("/upcoming", "upcomingController@upcomingRender");
+
+//ended
+$router->get("/ended", "endedController@endedRender");
+
+//remove
+$router->get("/remove", "removeController@removeRender");
+
+//notes
+$router->get("/notes", "notesController@notesRender");
+
+
+
+
+
+//logout
+$router->get("/logout", "LoginController@logout");
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $router->dispatch($uri);

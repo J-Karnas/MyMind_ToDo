@@ -4,11 +4,24 @@
 
 @import "./components/buttons";
 @import "./components/input";
+@import "./components/frame";
+@import "./components/task";
+@import "./components/calendar";
+@import "./components/modals";
+@import "./components/forms";
 
 @import "./layout/header-logout";
-// @import "./layout/header-login";
-// @import "./layout/sidebar";
+@import "./layout/header-login";
+@import "./layout/nav";
+@import "./layout/nav-mobile";
+@import "./layout/main-stats";
+@import "./layout/page";
+@import "./layout/category";
+@import "./layout/notes";
+@import "./layout/tasks";
 
 @import "./pages/hello-page";
 @import "./pages/register-page";
 @import "./pages/login-page";
+@import "./pages/main-page";
+@import "./pages/setting-page";

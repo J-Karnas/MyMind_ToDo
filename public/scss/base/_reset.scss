@@ -21,6 +21,10 @@ h2 {
   color: $main-color;
 }
 
+p {
+  cursor: default;
+}
+
 a,
 p,
 button {
@@ -31,3 +35,24 @@ h1,
 h2 {
   font-weight: 400;
 }
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+// ::-webkit-scrollbar {
+//   width: 8px;
+// }
+// ::-webkit-scrollbar-track {
+//   box-shadow: inset 0 0 5px grey;
+//   border-radius: 20px;
+//   margin: 2px 0;
+// }
+// ::-webkit-scrollbar-thumb {
+//   background: $main-bg-color;
+//   border-radius: 20px;
+// }
