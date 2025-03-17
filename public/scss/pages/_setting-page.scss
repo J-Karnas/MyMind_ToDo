@@ -30,6 +30,10 @@
     padding: 20px;
     margin: 20px;
 
+    &--about-me {
+      align-items: flex-start;
+    }
+
     @media only screen and (max-width: $breakpoint-mobile) {
       margin: 10px 20px;
     }

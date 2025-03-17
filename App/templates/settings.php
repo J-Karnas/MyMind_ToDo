@@ -85,10 +85,9 @@
 
         <div class="settings__container">
 
-            <form action="" class="settings__form frame">
+            <form action="" class="settings__form settings__form--about-me frame">
                 <p class="settings__subtitle">O mnie</p>
                 <input type="text" class="settings__input input" placeholder="Nazwa użytkownika">
-                <input type="text" class="settings__input input" placeholder="Numer telefonu">
                 <button class="settings__btn button">Zastosuj</button>
                 <button class="settings__btn button">Anuluj</button>
             </form>

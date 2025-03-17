@@ -24,7 +24,6 @@
         <p class="register-page__title">Zarejestruj się</p>
         <input class="register-page__input input" type="text" name="userName" placeholder="Nazwa użytkownika" required>
         <input class="register-page__input input" type="text" name="email" placeholder="Email" required>
-        <input class="register-page__input input" type="text" name="phoneNumber" placeholder="Numer telefonu">
         <input class="register-page__input input" type="password" name="password" placeholder="Hasło" required>
         <input class="register-page__input input" type="password" name="repeatPassword" placeholder="Powtórz hasło" required>
         <button class="register-page__btn button" type="submit">Zarejestruj się</button>

@@ -26,7 +26,6 @@ class RegisterController extends AbstractController
         $data = [
             'userName' => trim($_POST['userName']),
             'email' => trim($_POST['email']),
-            'phoneNumber' => trim($_POST['phoneNumber']),
             'password' => trim($_POST['password']),
             'repeatPassword' => trim($_POST['repeatPassword'])
         ];
@@ -46,16 +45,6 @@ class RegisterController extends AbstractController
             $this->forwarding("/register");
         }
 
-        if (!empty($data['phoneNumber'])) {
-            if (!strlen($data['phoneNumber']) == 9) {
-                $_SESSION["error"] = "Niepoprawny numer telefonu";
-                $this->forwarding("/register");
-            } else if (!preg_match('/^[0-9]{9,15}$/', $data['phone'])) {
-                $_SESSION["error"] = "Niepoprawny numer telefonu";
-                $this->forwarding("/register");
-            }
-        }
-
         if (strlen($data['password']) < 8) {
             $_SESSION["error"] = "Zbyt krótkie hasło";
             $this->forwarding("/register");
@@ -72,6 +61,7 @@ class RegisterController extends AbstractController
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
         if ($registerModel->UserAdd($data)) {
+            $_SESSION["error"] = "Konto zostało utworzone!";
             $this->forwarding("/login");
         } else {
             $_SESSION["error"] = "Nie udało się utworzyć konta";

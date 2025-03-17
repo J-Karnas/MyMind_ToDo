@@ -56,7 +56,9 @@
 
   &__category,
   &__priority {
-    width: 49%;
+    display: flex;
+    flex-direction: column;
+    width: 48%;
   }
 
   &__category-select,
@@ -71,6 +73,10 @@
     background-color: $bg-color;
     border: 1px solid $main-color;
     border-radius: $border-radius-x-small;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      margin-left: 5px;
+    }
   }
 
   &__category-btn,
@@ -82,7 +88,7 @@
   }
 
   &__notification-select {
-    margin: 10px;
+    margin: 10px 10px 20px;
   }
 
   &__title {
@@ -97,6 +103,13 @@
     &--preview {
       margin: 5px 0;
       border-bottom: none;
+    }
+
+    &--category,
+    &--priority {
+      @media only screen and (max-width: $breakpoint-mobile) {
+        padding: 0 5px;
+      }
     }
 
     &--description {
@@ -158,6 +171,10 @@
     flex-direction: column;
   }
 
+  &__reminders-date {
+    margin-left: 5px;
+  }
+
   &__end-day,
   &__title-notification {
     margin: 3px 10px;
@@ -167,15 +184,7 @@
     justify-content: start;
   }
 
-  &__title-reminders {
-    display: flex;
-    margin: 5px 0px 10px;
-    padding: 0 10px 5px;
-    justify-content: start;
-  }
-
-  &__reminders-checkbox,
-  &__reminder-mail-checkbox {
+  &__reminders-checkbox {
     font-size: 2rem;
     font-weight: bold;
     line-height: 1.1;
@@ -183,10 +192,6 @@
     grid-template-columns: 1em auto;
     accent-color: $main-bg-color;
     // gap: 0.5em;
-  }
-
-  &__reminder-mail-checkbox {
-    margin-left: 15px;
   }
 
   &__container-preview-btn {

@@ -40,13 +40,13 @@
 
         </div>
 
+        <p class="form__end-day">Data zakończenia: <input class="form__reminders-date" type="date"></p>
 
         <div class="form__reminders">
-            <p class="form__title">Przypomnienia
+            <p class="form__title">Przypomnienie na maila
                 <input class="form__reminders-checkbox" type="checkbox">
             </p>
 
-            <p class="form__end-day">Data zakończenia: <input class="form__reminders-date" type="date"></p>
             <p class="form__title-notification">Częstotliwość powiadomień: </p>
 
             <select name="notification" class="form__notification-select">
@@ -59,7 +59,6 @@
                 <option value="" class="form__notification-btn">Dzień przed zakończeniem</option>
             </select>
 
-            <p class="form__title-reminders">Przypomnienie na maila <input class="form__reminder-mail-checkbox" type="checkbox"></p>
         </div>
 
         <div class="form__container-btn">
@@ -114,12 +113,13 @@
         </div>
 
 
+        <p class="form__end-day">Data zakończenia: <input class="form__reminders-date" type="date"></p>
+
         <div class="form__reminders">
-            <p class="form__title">Przypomnienia
+            <p class="form__title">Przypomnienie na maila
                 <input class="form__reminders-checkbox" type="checkbox">
             </p>
 
-            <p class="form__end-day">Data zakończenia: <input class="form__reminders-date" type="date"></p>
             <p class="form__title-notification">Częstotliwość powiadomień: </p>
 
             <select name="notification" class="form__notification-select">
@@ -132,7 +132,6 @@
                 <option value="" class="form__notification-btn">Dzień przed zakończeniem</option>
             </select>
 
-            <p class="form__title-reminders">Przypomnienie na maila <input class="form__reminder-mail-checkbox" type="checkbox"></p>
         </div>
 
         <div class="form__container-btn">

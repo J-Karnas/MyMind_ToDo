@@ -96,6 +96,22 @@ li {
   border: 1px solid #0c0b0b;
   border-radius: 8px;
 }
+.frame--alert {
+  position: fixed;
+  top: 80px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  font-family: "Inter", serif;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #0c0b0b;
+  z-index: 111111;
+}
+@media only screen and (max-width: 600px) {
+  .frame--alert {
+    top: 70px;
+  }
+}
 
 .task {
   position: relative;
@@ -370,7 +386,9 @@ li {
   }
 }
 .form__category, .form__priority {
-  width: 49%;
+  display: flex;
+  flex-direction: column;
+  width: 48%;
 }
 .form__category-select, .form__priority-select, .form__notification-select {
   display: block;
@@ -383,13 +401,18 @@ li {
   border: 1px solid #0c0b0b;
   border-radius: 8px;
 }
+@media only screen and (max-width: 600px) {
+  .form__category-select, .form__priority-select, .form__notification-select {
+    margin-left: 5px;
+  }
+}
 .form__category-btn, .form__priotity-btn, .form__notification-btn {
   font-family: "Inter", serif;
   font-size: 0.9rem;
   font-weight: 300;
 }
 .form__notification-select {
-  margin: 10px;
+  margin: 10px 10px 20px;
 }
 .form__title {
   display: flex;
@@ -401,6 +424,11 @@ li {
 .form__title--category, .form__title--priority, .form__title--preview {
   margin: 5px 0;
   border-bottom: none;
+}
+@media only screen and (max-width: 600px) {
+  .form__title--category, .form__title--priority {
+    padding: 0 5px;
+  }
 }
 .form__title--description {
   border: 1px solid #0c0b0b;
@@ -452,28 +480,22 @@ li {
   display: flex;
   flex-direction: column;
 }
+.form__reminders-date {
+  margin-left: 5px;
+}
 .form__end-day, .form__title-notification {
   margin: 3px 10px;
 }
 .form__container-notification {
   justify-content: start;
 }
-.form__title-reminders {
-  display: flex;
-  margin: 5px 0px 10px;
-  padding: 0 10px 5px;
-  justify-content: start;
-}
-.form__reminders-checkbox, .form__reminder-mail-checkbox {
+.form__reminders-checkbox {
   font-size: 2rem;
   font-weight: bold;
   line-height: 1.1;
   display: grid;
   grid-template-columns: 1em auto;
   accent-color: #cccccc;
-}
-.form__reminder-mail-checkbox {
-  margin-left: 15px;
 }
 .form__container-preview-btn {
   display: flex;
@@ -1321,6 +1343,9 @@ li {
   width: 340px;
   padding: 20px;
   margin: 20px;
+}
+.settings__form--about-me {
+  align-items: flex-start;
 }
 @media only screen and (max-width: 600px) {
   .settings__form {

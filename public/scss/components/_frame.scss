@@ -3,4 +3,20 @@
   flex-direction: column;
   border: 1px solid $main-color;
   border-radius: $border-radius-x-small;
+
+  &--alert {
+    position: fixed;
+    top: 80px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    font-family: $font-family;
+    font-size: $fs-default;
+    background-color: $bg-color;
+    color: $main-color;
+    z-index: 111111;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      top: 70px;
+    }
+  }
 }

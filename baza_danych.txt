@@ -3,11 +3,15 @@ CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    phone_number VARCHAR(15),
     password_hash VARCHAR(255) NOT NULL,
     login_error INT,
     last_login DATETIME NOT NULL,
     created_at DATETIME NOT NULL
+);
+
+CREATE TABLE categories (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL
 );
 
 -- Tabela zadań
@@ -17,31 +21,15 @@ CREATE TABLE tasks (
     title VARCHAR(100) NOT NULL,
     description TEXT,
     category_id INT,
-    priority ENUM('niski', 'średni', 'wysoki') NOT NULL,
+    priority ENUM('0', 'I', 'II', 'III', 'IV', 'V'),
     due_date DATETIME,
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
--- Tabela kategorii zadań
-CREATE TABLE categories (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
-    name VARCHAR(50) NOT NULL,
-    created_at DATETIME NOT NULL,
-    updated_at DATETIME NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
--- Tabela przypomnień
-CREATE TABLE reminders (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    task_id INT,
-    reminder_date DATETIME NOT NULL,
-    type ENUM('email', 'sms') NOT NULL,
-    created_at DATETIME NOT NULL,
-    FOREIGN KEY (task_id) REFERENCES tasks(id)
+    reminder INT,
+    reminder_interval ENUM('0', 'codziennie', 'dwa dni', 'tydzien', 'dzien przed', 'dzien zakonczenia'),
+    last_reminder DATETIME,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
 -- Tabela notatek
@@ -49,9 +37,7 @@ CREATE TABLE notes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
     title VARCHAR(50) NOT NULL,
-    content TEXT,
-    created_at DATETIME NOT NULL,
-    updated_at DATETIME NOT NULL,
+    description TEXT,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
@@ -59,10 +45,8 @@ CREATE TABLE notes (
 CREATE TABLE user_settings (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
-    language ENUM('pl', 'en', 'de') NOT NULL,
+    language ENUM('pl', 'en') NOT NULL,
     theme ENUM('light', 'dark') NOT NULL,
-    notifications_email VARCHAR(10) NOT NULL,
-    notifications_sms VARCHAR(10) NOT NULL,
     updated_at DATETIME NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );

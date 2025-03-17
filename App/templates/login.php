@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyMind - Logowanie</title>
     <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="icon" href="/public/image/img/MyMind.png" type="image/png">
 </head>
 
 <body class="login-page">
