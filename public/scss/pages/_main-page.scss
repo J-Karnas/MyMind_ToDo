@@ -1,0 +1,42 @@
+.main {
+  padding: 20px 20px 10px;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    @media only screen and (max-width: $breakpoint-mobile) {
+      padding: 10px;
+    }
+  }
+
+  &__tasks {
+    position: relative;
+    z-index: -1;
+    margin-top: 5px;
+  }
+
+  &__tasks-title {
+    font-size: $fs-medium-title;
+    padding-bottom: 10px;
+  }
+
+  &__container-tasks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      justify-content: center;
+    }
+  }
+
+  &__task {
+    margin: 10px 5px;
+    width: 290px;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      margin: 5px;
+      width: 300px;
+    }
+  }
+}

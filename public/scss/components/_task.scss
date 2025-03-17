@@ -1,0 +1,72 @@
+.task {
+  position: relative;
+  padding: 10px 10px 10px 15px;
+  width: 300px;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(12, 11, 11, 1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(12, 11, 11, 1);
+    box-shadow: 0px 0px 5px 0px rgba(12, 11, 11, 1);
+  }
+
+  @media only screen and (max-width: $breakpoint-mobile) {
+    &:hover {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+
+  &__category {
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+
+  &__priority {
+    cursor: pointer;
+    top: 8px;
+    right: 12px;
+    position: absolute;
+    font-size: $fs-medium-title;
+  }
+
+  &__title {
+    cursor: pointer;
+    font-size: $fs-small-title;
+    padding-bottom: 10px;
+    margin-right: 20px;
+  }
+
+  &__description {
+    display: none;
+    cursor: pointer;
+  }
+
+  &__end {
+    cursor: pointer;
+    padding-bottom: 5px;
+  }
+
+  &__reminder-mail {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__check-reminder {
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230c0b0b' d='m10.6 15.508l6.396-6.396l-.707-.708l-5.689 5.688l-2.85-2.85l-.708.708zM5.616 20q-.691 0-1.153-.462T4 18.384V5.616q0-.691.463-1.153T5.616 4h12.769q.69 0 1.153.463T20 5.616v12.769q0 .69-.462 1.153T18.384 20zm0-1h12.769q.23 0 .423-.192t.192-.424V5.616q0-.231-.192-.424T18.384 5H5.616q-.231 0-.424.192T5 5.616v12.769q0 .23.192.423t.423.192M5 5v14z'/%3E%3C/svg%3E");
+
+    &--no {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230c0b0b' d='M7.5 12.5h9v-1h-9zM5.616 20q-.691 0-1.153-.462T4 18.384V5.616q0-.691.463-1.153T5.616 4h12.769q.69 0 1.153.463T20 5.616v12.769q0 .69-.462 1.153T18.384 20zm0-1h12.769q.23 0 .423-.192t.192-.424V5.616q0-.231-.192-.424T18.384 5H5.616q-.231 0-.424.192T5 5.616v12.769q0 .23.192.423t.423.192M5 5v14z'/%3E%3C/svg%3E");
+    }
+  }
+}

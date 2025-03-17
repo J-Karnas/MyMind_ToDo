@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyMind - Strona główna</title>
+    <title>MyMind - Zadania</title>
     <link rel="stylesheet" href="../../public/css/style.css">
 </head>
 
-<body class="page main">
+<body class="page viewTasks">
+
     <?php errorhand('error') ?>
     <?php require_once("./App/templates/modals.php") ?>
 
@@ -106,73 +107,94 @@
         </ul>
     </nav>
 
-    <div class="main__container">
+    <div class="calendar calendar--other-page">
 
-        <div class="stats">
-            <p class="stats__title">Statystyki</p>
-            <div class="stats__container">
-                <div class="stats__frame frame">
-                    <p class="stats__subtitle">Liczba zadań:</p>
-                    <p class="stats__description">Dzisiaj: 4</p>
-                    <p class="stats__description">Nadchodzące: 14</p>
-                    <p class="stats__description">Zakończone: 12</p>
-                    <p class="stats__description">Usunięte: 2</p>
-                </div>
-                <div class="stats__frame frame">
-                    <p class="stats__subtitle">Dzisiaj:</p>
-                    <p class="stats__description">Zadania ukończone: 3</p>
-                    <p class="stats__description">Zadania nieukończone: 1</p>
-                    <p class="stats__description">Zadania usunięte: 2</p>
-
-                </div>
-                <div class="stats__frame frame">
-                    <p class="stats__subtitle">W tym tygodniu:</p>
-                    <p class="stats__description">Zadania ukończone: 3</p>
-                    <p class="stats__description">Zadania nieukończone: 1</p>
-                    <p class="stats__description">Zadania usunięte: 2</p>
-                </div>
-                <div class="stats__frame frame">
-                    <p class="stats__subtitle">W tym miesiącu:</p>
-                    <p class="stats__description">Zadania ukończone: 3</p>
-                    <p class="stats__description">Zadania nieukończone: 1</p>
-                    <p class="stats__description">Zadania usunięte: 2</p>
-                </div>
-            </div>
-
+        <div class="calendar__header">
+            <button class="calendar__prev-month">&lt;</button>
+            <h2 class="calendar__current-month"></h2>
+            <button class="calendar__next-month">&gt;</button>
         </div>
-
-
-        <div class="main__calendar calendar">
-
-            <div class="calendar__header">
-                <button class="calendar__prev-month">&lt;</button>
-                <h2 class="calendar__current-month"></h2>
-                <button class="calendar__next-month">&gt;</button>
-            </div>
-            <div class="calendar__days-name">
-                <div class="calendar__day-name">Pn</div>
-                <div class="calendar__day-name">Wt</div>
-                <div class="calendar__day-name">Śr</div>
-                <div class="calendar__day-name">Cz</div>
-                <div class="calendar__day-name">Pt</div>
-                <div class="calendar__day-name">So</div>
-                <div class="calendar__day-name">Ni</div>
-            </div>
-            <div class="calendar__days"></div>
-
-            <button class="calendar__btn calendar__btn--hide">
-                <span class="calendar__icon"></span>
-            </button>
+        <div class="calendar__days-name">
+            <div class="calendar__day-name">Pn</div>
+            <div class="calendar__day-name">Wt</div>
+            <div class="calendar__day-name">Śr</div>
+            <div class="calendar__day-name">Cz</div>
+            <div class="calendar__day-name">Pt</div>
+            <div class="calendar__day-name">So</div>
+            <div class="calendar__day-name">Ni</div>
         </div>
+        <div class="calendar__days"></div>
 
+        <button class="calendar__btn calendar__btn--hide calendar__btn--other-page">
+            <span class="calendar__icon"></span>
+        </button>
     </div>
 
-    <div class="main__tasks">
-        <p class="main__tasks-title">Najbliższe zadania</p>
 
-        <div class="main__container-tasks">
+    <div class="tasks">
 
-            <div class="task frame main__task">
+        <header class="tasks__header">
+            <div class="tasks__container-list">
+
+                <span class="tasks__btn-category-title">Kategorie
+                    <span class="tasks__icon-default"></span>
+                </span>
+
+                <ul class="tasks__category-list tasks__category-list--hidden">
+                    <li class="tasks__category-item">
+                        Home
+                        <input type="checkbox" class="tasks__category-value">
+                    </li>
+                    <li class="tasks__category-item">
+                        Car
+                        <input type="checkbox" class="tasks__category-value">
+                    </li>
+                    <li class="tasks__category-item">
+                        Hobby
+                        <input type="checkbox" class="tasks__category-value">
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tasks__container-list">
+
+                <span class="tasks__btn-sort-title">Sortowanie
+                    <span class="tasks__icon-default "></span>
+                </span>
+
+                <ul class="tasks__sort-list tasks__sort-list--hidden">
+                    <li class="tasks__sort-item">
+                        Czas zakończenia rosnąco
+                        <input type="checkbox" class="tasks__sort-value">
+                    </li>
+                    <li class="tasks__sort-item">
+                        Czas zakończenia malejąco
+                        <input type="checkbox" class="tasks__sort-value">
+                    </li>
+                    <li class="tasks__sort-item">
+                        Priorytet rosnąco
+                        <input type="checkbox" class="tasks__sort-value">
+                    </li>
+                    <li class="tasks__sort-item">
+                        Priorytet malejąco
+                        <input type="checkbox" class="tasks__sort-value">
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="tasks__container">
+
+            <div class="task frame tasks__task">
+                <span class="task__category">Dom</span>
+                <span class="task__priority">III</span>
+                <p class="task__title">Mycie okien 1</p>
+                <p class="task__description">Lorem ipsum odor amet, consectetuer adipiscing elit. Bibendum habitant eu molestie urna purus molestie pretium? Justo ante scelerisque donec etiam posuere eros cras litora. Dui consequat maximus libero donec nam massa tortor pulvinar amet. Sociosqu ac sit ultricies facilisi tempor parturient. Lorem ipsum odor amet, consectetuer adipiscing elit. Bibendum habitant eu molestie urna purus molestie pretium? Justo ante scelerisque donec etiam posuere eros cras litora. Dui consequat maximus libero donec nam massa tortor pulvinar amet. Sociosqu ac sit ultricies facilisi tempor parturient.</p>
+                <p class="task__end">Koniec: 25.05.2025</p>
+                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
+            </div>
+
+            <div class="task frame tasks__task">
                 <span class="task__category">Dom</span>
                 <span class="task__priority">III</span>
                 <p class="task__title">Mycie okien 1</p>
@@ -181,66 +203,69 @@
                 <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
             </div>
 
-            <div class="task frame main__task">
+            <div class="task frame tasks__task">
                 <span class="task__category">Dom</span>
                 <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 2</p>
-                <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
-                <p class="task__end">Koniec: 25.05.2025</p>
-                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder"></span></p>
-            </div>
-
-            <div class="task frame main__task">
-                <span class="task__category">Dom</span>
-                <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 3</p>
+                <p class="task__title">Mycie okien 1</p>
                 <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
                 <p class="task__end">Koniec: 25.05.2025</p>
                 <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
             </div>
 
-            <div class="task frame main__task">
+            <div class="task frame tasks__task">
                 <span class="task__category">Dom</span>
                 <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 4</p>
+                <p class="task__title">Mycie okien 1</p>
                 <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
                 <p class="task__end">Koniec: 25.05.2025</p>
                 <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
             </div>
 
-            <div class="task frame main__task">
+            <div class="task frame tasks__task">
                 <span class="task__category">Dom</span>
                 <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 5</p>
+                <p class="task__title">Mycie okien 1</p>
                 <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
                 <p class="task__end">Koniec: 25.05.2025</p>
                 <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
             </div>
 
-            <div class="task frame main__task">
+            <div class="task frame tasks__task">
                 <span class="task__category">Dom</span>
                 <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 6</p>
+                <p class="task__title">Mycie okien 1</p>
                 <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
                 <p class="task__end">Koniec: 25.05.2025</p>
                 <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
             </div>
 
-            <div class="task frame main__task">
+            <div class="task frame tasks__task">
                 <span class="task__category">Dom</span>
                 <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 7</p>
+                <p class="task__title">Mycie okien 1</p>
                 <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
                 <p class="task__end">Koniec: 25.05.2025</p>
-                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder"></span></p>
+                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
             </div>
 
-
+            <div class="task frame tasks__task">
+                <span class="task__category">Dom</span>
+                <span class="task__priority">III</span>
+                <p class="task__title">Mycie okien 1</p>
+                <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
+                <p class="task__end">Koniec: 25.05.2025</p>
+                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
+            </div>
 
         </div>
 
-        <script src="../../public/js/main-script.js"></script>
-        <script src="../../public/js/btns-modal.js"></script>
+    </div>
+
+
+
+    <script src="../../public/js/main-script.js"></script>
+    <script src="../../public/js/btns-modal.js"></script>
+    <script src="../../public/js/task-pages.js"></script>
 </body>
 
 </html>

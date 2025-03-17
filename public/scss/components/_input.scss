@@ -7,4 +7,16 @@
   padding: 8px 15px;
   border: 1px solid $main-color;
   border-radius: $border-radius-small;
+
+  &--second {
+    display: inline-block;
+    font-size: $fs-default;
+    font-weight: 300;
+    background-color: $bg-color;
+    color: $main-color;
+    padding: 8px 10px;
+    border: none;
+    border-radius: none;
+    border-bottom: 1px solid $main-color;
+  }
 }

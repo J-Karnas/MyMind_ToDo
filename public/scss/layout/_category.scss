@@ -1,0 +1,51 @@
+.viewCategories {
+  padding: 20px 20px 10px;
+
+  @media only screen and (max-width: $breakpoint-mobile) {
+    padding: 10px 10px 10px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &__category {
+    display: flex;
+    justify-content: center;
+    min-height: 100px;
+    width: 280px;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(12, 11, 11, 1);
+      -moz-box-shadow: 0px 0px 5px 0px rgba(12, 11, 11, 1);
+      box-shadow: 0px 0px 5px 0px rgba(12, 11, 11, 1);
+    }
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      min-height: 80px;
+      min-width: 260px;
+      margin: 5px auto;
+
+      &:hover {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &__category-title {
+    font-size: $fs-small-title;
+    cursor: pointer;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      font-size: $fs-small-title-m;
+    }
+  }
+}

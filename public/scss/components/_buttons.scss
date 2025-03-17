@@ -2,9 +2,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: $main-color;
   background-color: $bg-color;
   padding: 8px 30px;
-  text-decoration: none;
   border: 1px solid $main-color;
   border-radius: $border-radius-large;
   cursor: pointer;
@@ -13,5 +13,9 @@
   &:hover {
     color: $alt-text-color;
     background-color: $main-color;
+  }
+
+  @media only screen and (max-width: $breakpoint-mobile) {
+    padding: 8px 25px;
   }
 }

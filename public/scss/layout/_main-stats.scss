@@ -1,0 +1,36 @@
+.stats {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  &__title {
+    font-size: $fs-medium-title;
+    padding-bottom: 10px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+
+  &__frame {
+    padding: 10px 15px;
+    margin: 5px;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      min-width: 220px;
+    }
+  }
+
+  &__subtitle {
+    font-size: $fs-small-title;
+  }
+
+  &__description {
+    padding: 5px 5px 0px 5px;
+  }
+}

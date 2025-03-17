@@ -1,0 +1,61 @@
+.header-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid $main-color;
+  height: 60px;
+  padding: 0 20px;
+  background-color: $bg-color;
+  z-index: 111;
+
+  @media only screen and (max-width: $breakpoint-mobile) {
+    height: 50px;
+  }
+
+  &__title {
+    font-size: $fs-max-title;
+    line-height: 60px;
+    @media only screen and (max-width: $breakpoint-mobile) {
+      font-size: $fs-max-title-m;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link {
+    &--account {
+      display: inline;
+      @media only screen and (max-width: $breakpoint-mobile) {
+        display: none;
+      }
+    }
+
+    &--burger {
+      display: none;
+      @media only screen and (max-width: $breakpoint-mobile) {
+        display: flex;
+      }
+    }
+  }
+
+  &__icon {
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+}
