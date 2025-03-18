@@ -99,7 +99,8 @@ li {
 .frame--alert {
   position: fixed;
   top: 80px;
-  margin: 0 auto;
+  left: 50%;
+  transform: translate(-50%, 0);
   padding: 20px 40px;
   font-family: "Inter", serif;
   font-size: 1rem;

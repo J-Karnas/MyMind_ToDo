@@ -31,9 +31,11 @@ $router->get("/settings", "SettingsController@settingsRender");
 
 //viewTasks
 $router->get("/viewTasks", "ViewTasksController@viewTasksRender");
+$router->post("/addTasks", "ViewTasksController@postTask");
 
 //viewCategories
 $router->get("/viewCategories", "ViewCategoriesController@viewCategoriesRender");
+$router->post("/addCategories", "ViewCategoriesController@postCategory");
 
 //today
 $router->get("/today", "todayController@todayRender");

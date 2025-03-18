@@ -11,7 +11,9 @@ CREATE TABLE users (
 
 CREATE TABLE categories (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL
+    name VARCHAR(50) NOT NULL,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 -- Tabela zadań
@@ -25,7 +27,7 @@ CREATE TABLE tasks (
     due_date DATETIME,
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL,
-    reminder INT,
+    reminder VARCHAR(2),
     reminder_interval ENUM('0', 'codziennie', 'dwa dni', 'tydzien', 'dzien przed', 'dzien zakonczenia'),
     last_reminder DATETIME,
     FOREIGN KEY (user_id) REFERENCES users(id),

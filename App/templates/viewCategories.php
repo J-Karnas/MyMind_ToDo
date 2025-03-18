@@ -131,72 +131,17 @@
     </div>
 
     <div class="viewCategories__container">
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Home</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Hobby</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Car</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Home</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Hobby</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Car</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Home</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Hobby</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Car</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Home</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Hobby</p>
-        </div>
-
-        <div class="viewCategories__category category frame">
-            <p class="viewCategories__category-title">Car</p>
-        </div>
+        <?php if (isset($elements['category'])): ?>
+            <?php foreach ($elements['category'] as $category): ?>
+                <div class="viewCategories__category category frame">
+                    <p class="viewCategories__category-title">
+                        <?php echo $category['name']; ?>
+                    </p>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script src="../../public/js/main-script.js"></script>
     <script src="../../public/js/btns-modal.js"></script>

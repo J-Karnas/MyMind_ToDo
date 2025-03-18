@@ -1,10 +1,10 @@
 <div class="modal modal--addTaskModal modal--hide">
 
-    <form class="form frame">
+    <form class="form frame" method="post" action="/addTasks">
 
-        <input type="text" class="form__input input--second" name="" placeholder="Tytuł zadania">
+        <input type="text" class="form__input input--second" name="titleTask" placeholder="Tytuł zadania">
 
-        <textarea class="form__textarea form__textarea--task" placeholder="Opis..." name=""></textarea>
+        <textarea class="form__textarea form__textarea--task" placeholder="Opis..." name="descriptionTask"></textarea>
 
         <div class="form__container-category-priority">
 
@@ -12,51 +12,52 @@
                 <p class="form__title form__title--category">Wybierz kategorię: </p>
 
                 <select name="category" class="form__category-select">
-                    <option value="" class="form__category-btn">
+                    <option value="null" class="form__category-btn">
                         Brak kategorii
                     </option>
-                    <option value="" class="form__category-btn">Home</option>
-                    <option value="" class="form__category-btn">Car</option>
-                    <option value="" class="form__category-btn">Hobby</option>
-                    <option value="" class="form__category-btn">Home</option>
-                    <option value="" class="form__category-btn">Car</option>
-                    <option value="" class="form__category-btn">Hobby</option>
+                    <option value="1" class="form__category-btn">Home</option>
+                    <option value="2" class="form__category-btn">Car</option>
+                    <option value="3" class="form__category-btn">Hobby</option>
+                    <option value="4" class="form__category-btn">Home</option>
+                    <option value="5" class="form__category-btn">Car</option>
+                    <option value="6" class="form__category-btn">Hobby</option>
                 </select>
             </div>
 
             <div class="form__priority">
                 <p class="form__title form__title--priority">Wybierz priorytet: </p>
                 <select name="priority" class="form__priority-select">
-                    <option value="" class="form__category-btn">
+                    <option value="null" class="form__category-btn">
                         Brak priorytetu
                     </option>
-                    <option value="" class="form__priotity-btn">I</option>
-                    <option value="" class="form__priotity-btn">II</option>
-                    <option value="" class="form__priotity-btn">III</option>
-                    <option value="" class="form__priotity-btn">IV</option>
-                    <option value="" class="form__priotity-btn">V</option>
+                    <option value="1" class="form__priotity-btn">I</option>
+                    <option value="2" class="form__priotity-btn">II</option>
+                    <option value="3" class="form__priotity-btn">III</option>
+                    <option value="4" class="form__priotity-btn">IV</option>
+                    <option value="5" class="form__priotity-btn">V</option>
                 </select>
             </div>
 
         </div>
 
-        <p class="form__end-day">Data zakończenia: <input class="form__reminders-date" type="date"></p>
+        <p class="form__end-day">Data zakończenia: <input class="form__reminders-date" type="date" name="date"></p>
 
         <div class="form__reminders">
             <p class="form__title">Przypomnienie na maila
-                <input class="form__reminders-checkbox" type="checkbox">
+                <input class="form__reminders-checkbox" type="checkbox" name="checkboxReminder">
             </p>
 
             <p class="form__title-notification">Częstotliwość powiadomień: </p>
 
             <select name="notification" class="form__notification-select">
-                <option value="" class="form__notification-btn">
-                    -- Brak priorytetu --
+                <option value="null" class="form__notification-btn">
+                    Brak przypomnień
                 </option>
-                <option value="" class="form__notification-btn">Codziennie</option>
-                <option value="" class="form__notification-btn">Co dwa dni</option>
-                <option value="" class="form__notification-btn">Co tydzień</option>
-                <option value="" class="form__notification-btn">Dzień przed zakończeniem</option>
+                <option value="1" class="form__notification-btn">Codziennie</option>
+                <option value="2" class="form__notification-btn">Co dwa dni</option>
+                <option value="3" class="form__notification-btn">Co tydzień</option>
+                <option value="4" class="form__notification-btn">Dzień przed zakończeniem</option>
+                <option value="5" class="form__notification-btn">W dzień zakończenia</option>
             </select>
 
         </div>
@@ -72,64 +73,65 @@
 
 <div class="modal modal--editTaskModal modal--hide">
 
-    <form class="form frame">
+    <form class="form frame" method="post" action="/">
 
-        <input type="text" class="form__input input--second" name="" placeholder="Tytuł zadania">
+        <input type="text" class="form__input input--second" name="titleTaskEdit" placeholder="Tytuł zadania">
 
-        <textarea class="form__textarea form__textarea--task" placeholder="Opis..." name=""></textarea>
+        <textarea class="form__textarea form__textarea--task" placeholder="Opis..." name="descriptionTasEdit"></textarea>
 
         <div class="form__container-category-priority">
 
             <div class="form__category">
                 <p class="form__title form__title--category">Wybierz kategorię: </p>
 
-                <select name="category" class="form__category-select">
-                    <option value="" class="form__category-btn">
+                <select name="categoryEdit" class="form__category-select">
+                    <option value="0" class="form__category-btn">
                         Brak kategorii
                     </option>
-                    <option value="" class="form__category-btn">Home</option>
-                    <option value="" class="form__category-btn">Car</option>
-                    <option value="" class="form__category-btn">Hobby</option>
-                    <option value="" class="form__category-btn">Home</option>
-                    <option value="" class="form__category-btn">Car</option>
-                    <option value="" class="form__category-btn">Hobby</option>
+                    <option value="1" class="form__category-btn">Home</option>
+                    <option value="2" class="form__category-btn">Car</option>
+                    <option value="3" class="form__category-btn">Hobby</option>
+                    <option value="4" class="form__category-btn">Home</option>
+                    <option value="5" class="form__category-btn">Car</option>
+                    <option value="6" class="form__category-btn">Hobby</option>
                 </select>
             </div>
 
             <div class="form__priority">
                 <p class="form__title form__title--priority">Wybierz priorytet: </p>
-                <select name="priority" class="form__priority-select">
-                    <option value="" class="form__category-btn">
+                <select name="priorityEdit" class="form__priority-select">
+                    <option value="0" class="form__category-btn">
                         Brak priorytetu
                     </option>
-                    <option value="" class="form__priotity-btn">I</option>
-                    <option value="" class="form__priotity-btn">II</option>
-                    <option value="" class="form__priotity-btn">III</option>
-                    <option value="" class="form__priotity-btn">IV</option>
-                    <option value="" class="form__priotity-btn">V</option>
+                    <option value="1" class="form__priotity-btn">I</option>
+                    <option value="2" class="form__priotity-btn">II</option>
+                    <option value="3" class="form__priotity-btn">III</option>
+                    <option value="4" class="form__priotity-btn">IV</option>
+                    <option value="5" class="form__priotity-btn">V</option>
                 </select>
             </div>
 
         </div>
 
 
-        <p class="form__end-day">Data zakończenia: <input class="form__reminders-date" type="date"></p>
+        <p class="form__end-day">Data zakończenia: <input class="form__reminders-date" type="date" name="dateEdit"></p>
 
         <div class="form__reminders">
             <p class="form__title">Przypomnienie na maila
-                <input class="form__reminders-checkbox" type="checkbox">
+                <input class="form__reminders-checkbox" type="checkbox" name="checkboxReminderEdit">
             </p>
 
             <p class="form__title-notification">Częstotliwość powiadomień: </p>
 
-            <select name="notification" class="form__notification-select">
-                <option value="" class="form__notification-btn">
-                    -- Brak priorytetu --
+            <select name="notificationEdit" class="form__notification-select">
+                <option value="0" class="form__notification-btn">
+                    Brak przypomnień
                 </option>
-                <option value="" class="form__notification-btn">Codziennie</option>
-                <option value="" class="form__notification-btn">Co dwa dni</option>
-                <option value="" class="form__notification-btn">Co tydzień</option>
-                <option value="" class="form__notification-btn">Dzień przed zakończeniem</option>
+                <option value="1" class="form__notification-btn">Codziennie</option>
+                <option value="2" class="form__notification-btn">Co dwa dni</option>
+                <option value="3" class="form__notification-btn">Co tydzień</option>
+                <option value="4" class="form__notification-btn">Dzień przed zakończeniem</option>
+                <option value="5" class="form__notification-btn">W dzień zakończenia</option>
             </select>
 
         </div>
@@ -168,9 +170,9 @@
 
 <div class="modal modal--addCategoryModal modal--hide">
 
-    <form class="form frame">
+    <form class="form frame" method="post" action="/addCategories">
 
-        <input type="text" class="form__input form__input--category input--second" name="" placeholder="Nazwa kategorii">
+        <input type="text" class="form__input form__input--category input--second" name="category" placeholder="Nazwa kategorii">
 
 
         <div class="form__container-btn">
@@ -184,9 +186,10 @@
 
 <div class="modal modal--editCategoryModal modal--hide">
 
-    <form class="form frame">
+    <form class="form frame" method="post" action="/">
 
-        <input type="text" class="form__input form__input--category input--second" name="" placeholder="Nazwa kategorii">
+    
+        <input type="text" class="form__input form__input--category input--second" name="categoryEdit" placeholder="Nazwa kategorii">
 
 
         <div class="form__container-btn">
