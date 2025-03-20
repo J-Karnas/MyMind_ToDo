@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyMind - Zadania</title>
     <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="icon" href="/public/image/img/MyMind.png" type="image/png">
 </head>
 
 <body class="page viewTasks">
@@ -25,87 +26,7 @@
         </div>
     </header>
 
-    <nav class="nav">
-        <ul class="nav__list">
-            <ul class="nav__sublist">
-                <p class="nav__section-name">Strona główna</p>
-                <li class="nav__item">
-                    <a href="/main" class="nav__link">Strona główna</a>
-                </li>
-            </ul>
-
-            <ul class="nav__sublist">
-                <p class="nav__section-name">Zadania</p>
-                <li class="nav__item nav__item--hidden">
-                    <a href="/#" class="nav__link nav__link--add-task">Dodaj zadanie</a>
-                </li>
-                <li class="nav__item">
-                    <a href="/viewTasks" class="nav__link">Lista zadań</a>
-                </li>
-            </ul>
-
-            <ul class="nav__sublist">
-                <p class="nav__section-name">Kategorie</p>
-                <li class="nav__item nav__item--hidden">
-                    <a href="/#" class="nav__link nav__link--add-category">Dodaj kategorie</a>
-                </li>
-                <li class="nav__item">
-                    <a href="/viewCategories" class="nav__link">Lista kategorii</a>
-                </li>
-            </ul>
-
-            <ul class="nav__sublist">
-                <p class="nav__section-name">Przegląd zadań</p>
-                <li class="nav__item">
-                    <a href="/today" class="nav__link">Dzisiaj</a>
-                </li>
-                <li class="nav__item">
-                    <a href="/upcoming" class="nav__link">Nadchodzące</a>
-                </li>
-                <li class="nav__item">
-                    <a href="/ended" class="nav__link">Zakończone</a>
-                </li>
-                <li class="nav__item">
-                    <a href="/remove" class="nav__link">Usunięte</a>
-                </li>
-            </ul>
-
-            <ul class="nav__sublist">
-                <p class="nav__section-name">Pozostałe</p>
-                <li class="nav__item nav__item--hidden">
-                    <a href="/#" class="nav__link nav__link--add-note">Dodaj notatkę</a>
-                </li>
-                <li class="nav__item">
-                    <a href="/notes" class="nav__link">Notatki</a>
-                </li>
-            </ul>
-
-            <ul class="nav__sublist nav__sublist--hidden">
-                <p class="nav__section-name">Ustawienia</p>
-                <li class="nav__item">
-                    <a href="/settings" class="nav__link">Profil</a>
-                </li>
-            </ul>
-        </ul>
-        <a href="logout"><span class="nav__logout"></span></a>
-    </nav>
-
-    <nav class="mobile-list">
-        <button class="mobile-list__button"><span class="mobile-list__icon"></span>
-        </button>
-
-        <ul class="mobile-list__sublist">
-            <li class="mobile-list__item mobile-list__item--1">
-                <a href="/#" class="mobile-list__link nav__link--add-task">Zadanie</a>
-            </li>
-            <li class="mobile-list__item mobile-list__item--2">
-                <a href="/#" class="mobile-list__link nav__link--add-category">Kategoria</a>
-            </li>
-            <li class="mobile-list__item mobile-list__item--3">
-                <a href="/#" class="mobile-list__link nav__link--add-note">Notatka</a>
-            </li>
-        </ul>
-    </nav>
+    <?php require_once("./App/templates/nav.php") ?>
 
     <div class="calendar calendar--other-page">
 
@@ -133,129 +54,105 @@
 
     <div class="tasks">
 
-        <header class="tasks__header">
-            <div class="tasks__container-list">
+        <form method="get" action="/viewTasks">
 
-                <span class="tasks__btn-category-title">Kategorie
-                    <span class="tasks__icon-default"></span>
-                </span>
+            <header class="tasks__header">
+                <div class="tasks__container-list">
 
-                <ul class="tasks__category-list tasks__category-list--hidden">
-                    <li class="tasks__category-item">
-                        Home
-                        <input type="checkbox" class="tasks__category-value">
-                    </li>
-                    <li class="tasks__category-item">
-                        Car
-                        <input type="checkbox" class="tasks__category-value">
-                    </li>
-                    <li class="tasks__category-item">
-                        Hobby
-                        <input type="checkbox" class="tasks__category-value">
-                    </li>
-                </ul>
-            </div>
+                    <span class="tasks__btn-category-title">Kategorie
+                        <span class="tasks__icon-default"></span>
+                    </span>
 
-            <div class="tasks__container-list">
+                    <ul class="tasks__category-list tasks__category-list--hidden">
+                        <li class="tasks__category-item">
+                            Brak kategorii
+                            <input type="checkbox" name="categoriesNone[]" value="none" class="tasks__category-value" checked>
+                        </li>
+                        <?php if (isset($elements['category'])): ?>
+                            <?php foreach ($elements['category'] as $category): ?>
+                                <li class="tasks__category-item">
+                                    <?php echo $category['name']; ?>
+                                    <input type="checkbox" name="categories[]" value="<?php echo $category['id']; ?>" class="tasks__category-value" checked>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </ul>
 
-                <span class="tasks__btn-sort-title">Sortowanie
-                    <span class="tasks__icon-default "></span>
-                </span>
+                </div>
 
-                <ul class="tasks__sort-list tasks__sort-list--hidden">
-                    <li class="tasks__sort-item">
-                        Czas zakończenia rosnąco
-                        <input type="checkbox" class="tasks__sort-value">
-                    </li>
-                    <li class="tasks__sort-item">
-                        Czas zakończenia malejąco
-                        <input type="checkbox" class="tasks__sort-value">
-                    </li>
-                    <li class="tasks__sort-item">
-                        Priorytet rosnąco
-                        <input type="checkbox" class="tasks__sort-value">
-                    </li>
-                    <li class="tasks__sort-item">
-                        Priorytet malejąco
-                        <input type="checkbox" class="tasks__sort-value">
-                    </li>
-                </ul>
-            </div>
-        </header>
+                <div class="tasks__container-list">
+
+                    <span class="tasks__btn-sort-title">Sortowanie
+                        <span class="tasks__icon-default "></span>
+                    </span>
+
+                    <ul class="tasks__sort-list tasks__sort-list--hidden">
+                        <li class="tasks__sort-item">
+                            Czas zakończenia rosnąco
+                            <input type="checkbox" class="tasks__sort-value" name="sort" value="1">
+                        </li>
+                        <li class="tasks__sort-item">
+                            Czas zakończenia malejąco
+                            <input type="checkbox" class="tasks__sort-value" name="sort" value="2">
+                        </li>
+                        <li class="tasks__sort-item">
+                            Priorytet rosnąco
+                            <input type="checkbox" class="tasks__sort-value" name="sort" value="3">
+                        </li>
+                        <li class="tasks__sort-item">
+                            Priorytet malejąco
+                            <input type="checkbox" class="tasks__sort-value" name="sort" value="4">
+                        </li>
+                    </ul>
+
+                </div>
+
+                <button class="tasks__btn button">Zastosuj</button>
+
+            </header>
+
+        </form>
 
         <div class="tasks__container">
 
-            <div class="task frame tasks__task">
-                <span class="task__category">Dom</span>
-                <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 1</p>
-                <p class="task__description">Lorem ipsum odor amet, consectetuer adipiscing elit. Bibendum habitant eu molestie urna purus molestie pretium? Justo ante scelerisque donec etiam posuere eros cras litora. Dui consequat maximus libero donec nam massa tortor pulvinar amet. Sociosqu ac sit ultricies facilisi tempor parturient. Lorem ipsum odor amet, consectetuer adipiscing elit. Bibendum habitant eu molestie urna purus molestie pretium? Justo ante scelerisque donec etiam posuere eros cras litora. Dui consequat maximus libero donec nam massa tortor pulvinar amet. Sociosqu ac sit ultricies facilisi tempor parturient.</p>
-                <p class="task__end">Koniec: 25.05.2025</p>
-                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
-            </div>
+            <?php if (isset($elements['tasks'])): ?>
+                <?php foreach ($elements['tasks'] as $tasks): ?>
 
-            <div class="task frame tasks__task">
-                <span class="task__category">Dom</span>
-                <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 1</p>
-                <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
-                <p class="task__end">Koniec: 25.05.2025</p>
-                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
-            </div>
 
-            <div class="task frame tasks__task">
-                <span class="task__category">Dom</span>
-                <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 1</p>
-                <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
-                <p class="task__end">Koniec: 25.05.2025</p>
-                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
-            </div>
+                    <div class="task frame tasks__task">
+                        <span class="task__category">
+                            <?php
+                            if (isset($tasks['name'])) {
+                                echo $tasks['name'];
+                            } else {
+                                echo "Brak kategorii";
+                            }
 
-            <div class="task frame tasks__task">
-                <span class="task__category">Dom</span>
-                <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 1</p>
-                <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
-                <p class="task__end">Koniec: 25.05.2025</p>
-                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
-            </div>
+                            ?></span>
+                        <span class="task__priority"><?php echo $tasks['priority']; ?></span>
+                        <p class="task__title"><?php echo $tasks['title']; ?></p>
+                        <p class="task__description"><?php echo $tasks['description']; ?></p>
+                        <p class="task__end">Koniec:
+                            <?php
+                            if (isset($tasks['due_date'])) {
+                                echo $tasks['due_date'];
+                            } else {
+                                echo "Brak daty";
+                            }
 
-            <div class="task frame tasks__task">
-                <span class="task__category">Dom</span>
-                <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 1</p>
-                <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
-                <p class="task__end">Koniec: 25.05.2025</p>
-                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
-            </div>
+                            ?></p>
 
-            <div class="task frame tasks__task">
-                <span class="task__category">Dom</span>
-                <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 1</p>
-                <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
-                <p class="task__end">Koniec: 25.05.2025</p>
-                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
-            </div>
+                        <p class="task__reminder-mail">Przypomnienie na maila
+                            <?php if (isset($tasks['reminder'])): ?>
+                                <span class="task__check-reminder"></span>
+                            <?php else: ?>
+                                <span class="task__check-reminder task__check-reminder--no"></span>
+                            <?php endif; ?>
+                        </p>
+                    </div>
 
-            <div class="task frame tasks__task">
-                <span class="task__category">Dom</span>
-                <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 1</p>
-                <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
-                <p class="task__end">Koniec: 25.05.2025</p>
-                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
-            </div>
-
-            <div class="task frame tasks__task">
-                <span class="task__category">Dom</span>
-                <span class="task__priority">III</span>
-                <p class="task__title">Mycie okien 1</p>
-                <p class="task__description">Jakiś tam opis krótki max 50 znaków się wywietli...</p>
-                <p class="task__end">Koniec: 25.05.2025</p>
-                <p class="task__reminder-mail">Przypomnienie na maila<span class="task__check-reminder task__check-reminder--no"></span></p>
-            </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
 
         </div>
 

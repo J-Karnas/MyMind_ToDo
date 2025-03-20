@@ -46,14 +46,9 @@ $router->get("/upcoming", "upcomingController@upcomingRender");
 //ended
 $router->get("/ended", "endedController@endedRender");
 
-//remove
-$router->get("/remove", "removeController@removeRender");
-
 //notes
 $router->get("/notes", "notesController@notesRender");
-
-
-
+$router->post("/addNote", "notesController@postNote");
 
 
 //logout

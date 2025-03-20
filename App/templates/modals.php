@@ -15,12 +15,14 @@
                     <option value="null" class="form__category-btn">
                         Brak kategorii
                     </option>
-                    <option value="1" class="form__category-btn">Home</option>
-                    <option value="2" class="form__category-btn">Car</option>
-                    <option value="3" class="form__category-btn">Hobby</option>
-                    <option value="4" class="form__category-btn">Home</option>
-                    <option value="5" class="form__category-btn">Car</option>
-                    <option value="6" class="form__category-btn">Hobby</option>
+                    <?php if (isset($elements['category'])): ?>
+                        <?php foreach ($elements['category'] as $category): ?>
+                            <option value="<?php echo $category['id'] ?>" class="form__category-btn">
+                                <?php echo $category['name']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+
                 </select>
             </div>
 
@@ -73,9 +75,10 @@
 
 <div class="modal modal--editTaskModal modal--hide">
 
-    <form class="form frame" method="post" action="/">
+    <form class="form frame" method="post" action="/editTask">
+        <input type="hidden" name="id">
 
-        <input type="text" class="form__input input--second" name="titleTaskEdit" placeholder="Tytuł zadania">
+        <input type="text" class="form__input input--second" id="edittitle" name="titleTaskEdit" placeholder="Tytuł zadania">
 
         <textarea class="form__textarea form__textarea--task" placeholder="Opis..." name="descriptionTasEdit"></textarea>
 
@@ -85,22 +88,23 @@
                 <p class="form__title form__title--category">Wybierz kategorię: </p>
 
                 <select name="categoryEdit" class="form__category-select">
-                    <option value="0" class="form__category-btn">
+                    <option value="null" class="form__category-btn">
                         Brak kategorii
                     </option>
-                    <option value="1" class="form__category-btn">Home</option>
-                    <option value="2" class="form__category-btn">Car</option>
-                    <option value="3" class="form__category-btn">Hobby</option>
-                    <option value="4" class="form__category-btn">Home</option>
-                    <option value="5" class="form__category-btn">Car</option>
-                    <option value="6" class="form__category-btn">Hobby</option>
+                    <?php if (isset($elements['category'])): ?>
+                        <?php foreach ($elements['category'] as $category): ?>
+                            <option value="<?php echo $category['id'] ?>" class="form__category-btn">
+                                <?php echo $category['name']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </select>
             </div>
 
             <div class="form__priority">
                 <p class="form__title form__title--priority">Wybierz priorytet: </p>
                 <select name="priorityEdit" class="form__priority-select">
-                    <option value="0" class="form__category-btn">
+                    <option value="null" class="form__category-btn">
                         Brak priorytetu
                     </option>
                     <option value="1" class="form__priotity-btn">I</option>
@@ -124,7 +128,7 @@
             <p class="form__title-notification">Częstotliwość powiadomień: </p>
 
             <select name="notificationEdit" class="form__notification-select">
-                <option value="0" class="form__notification-btn">
+                <option value="null" class="form__notification-btn">
                     Brak przypomnień
                 </option>
                 <option value="1" class="form__notification-btn">Codziennie</option>
@@ -186,9 +190,8 @@
 
 <div class="modal modal--editCategoryModal modal--hide">
 
-    <form class="form frame" method="post" action="/">
+    <form class="form frame" method="post" action="/editCategory">
 
-    
         <input type="text" class="form__input form__input--category input--second" name="categoryEdit" placeholder="Nazwa kategorii">
 
 
@@ -221,11 +224,11 @@
 
 <div class="modal modal--addNoteModal modal--hide">
 
-    <form class="form frame">
+    <form class="form frame" action="/addNote" method="post">
 
-        <input type="text" class="form__input form__input--note input--second" name="" placeholder="Tytuł notatki">
+        <input type="text" class="form__input form__input--note input--second" name="titleNote" placeholder="Tytuł notatki">
 
-        <textarea class="form__textarea" placeholder="Opis..." name=""></textarea>
+        <textarea class="form__textarea" placeholder="Opis..." name="descriptionNote"></textarea>
         <div class="form__container-btn">
             <button class="form__btn form__btn--add button">Dodaj</button>
             <button class="form__btn form__btn--cancel button">Anuluj</button>
@@ -237,11 +240,11 @@
 
 <div class="modal modal--editNoteModal modal--hide">
 
-    <form class="form frame">
+    <form class="form frame" action="/editNote" method="post">
 
-        <input type="text" class="form__input form__input--note input--second" name="" placeholder="Tytuł notatki">
+        <input type="text" class="form__input form__input--note input--second" name="titleNote" placeholder="Tytuł notatki">
 
-        <textarea class="form__textarea" placeholder="Opis..." name=""></textarea>
+        <textarea class="form__textarea" placeholder="Opis..." name="descriptionNote"></textarea>
         <div class="form__container-btn">
             <button class="form__btn form__btn--confirm button">Potwierdź</button>
             <button class="form__btn form__btn--cancel button">Anuluj</button>

@@ -186,7 +186,7 @@ li {
 }
 .calendar--other-page {
   position: fixed;
-  top: 61px;
+  top: 120px;
   right: -310px;
   width: 310px;
 }
@@ -196,7 +196,7 @@ li {
 @media only screen and (max-width: 600px) {
   .calendar {
     position: fixed;
-    top: 51px;
+    top: 108px;
     right: -310px;
     width: 310px;
   }
@@ -953,8 +953,7 @@ li {
 }
 .notes__note {
   display: flex;
-  min-height: 200px;
-  max-height: 280px;
+  height: 220px;
   width: 280px;
   margin: 5px 10px;
   padding: 10px 15px;
@@ -966,8 +965,7 @@ li {
 }
 @media only screen and (max-width: 600px) {
   .notes__note {
-    min-height: 200px;
-    max-height: 280px;
+    height: 220px;
     width: 280px;
     margin: 5px auto;
   }
@@ -983,8 +981,8 @@ li {
 .notes__note-description {
   line-height: 1.25rem;
   display: -webkit-box;
-  -webkit-line-clamp: 11;
-  line-clamp: 11;
+  -webkit-line-clamp: 8;
+  line-clamp: 8;
   -webkit-box-orient: vertical;
   overflow: hidden;
   cursor: pointer;
@@ -996,15 +994,14 @@ li {
 .tasks__header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
   padding: 5px 0;
   border-bottom: 1px solid #0c0b0b;
 }
 @media only screen and (max-width: 600px) {
   .tasks__header {
-    padding: 5px 20px;
-    justify-content: flex-start;
+    padding: 5px;
   }
 }
 .tasks__icon-default {
@@ -1024,6 +1021,7 @@ li {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-left: 15px;
   padding: 5px 0px 5px 13px;
   cursor: pointer;
   border: 1px solid #0c0b0b;
@@ -1031,19 +1029,24 @@ li {
 }
 @media only screen and (max-width: 600px) {
   .tasks__btn-category-title {
-    margin-right: 40px;
+    margin-left: 0px;
   }
 }
 .tasks__category-list {
   position: absolute;
   z-index: 1111;
   display: block;
-  margin: 3px;
+  margin: 3px 3px 3px 13px;
   padding: 10px;
   border: 1px solid #0c0b0b;
   border-radius: 15px;
   background-color: #ffffff;
   transition: 0.3;
+}
+@media only screen and (max-width: 600px) {
+  .tasks__category-list {
+    margin: 3px 3px 3px 0px;
+  }
 }
 .tasks__category-list--hidden {
   display: none;
@@ -1065,21 +1068,32 @@ li {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-left: 15px;
   padding: 5px 0px 5px 13px;
   cursor: pointer;
   border: 1px solid #0c0b0b;
   border-radius: 15px;
   width: 130px;
 }
+@media only screen and (max-width: 600px) {
+  .tasks__btn-sort-title {
+    margin-left: 5px;
+  }
+}
 .tasks__sort-list {
   position: absolute;
   z-index: 1111;
   display: block;
-  margin: 3px;
+  margin: 3px 3px 3px 13px;
   padding: 10px;
   border: 1px solid #0c0b0b;
   border-radius: 15px;
   background-color: #ffffff;
+}
+@media only screen and (max-width: 600px) {
+  .tasks__sort-list {
+    margin: 3px 3px 3px 0px;
+  }
 }
 .tasks__sort-list--hidden {
   display: none;
@@ -1110,6 +1124,15 @@ li {
 }
 .tasks__task {
   margin: 5px;
+}
+.tasks__btn {
+  margin-left: 15px;
+  padding: 8px 25px;
+}
+@media only screen and (max-width: 600px) {
+  .tasks__btn {
+    padding: 8px 15px;
+  }
 }
 
 .welcome-page {

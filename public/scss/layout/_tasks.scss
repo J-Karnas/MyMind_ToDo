@@ -3,14 +3,13 @@
   &__header {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
     padding: 5px 0;
     border-bottom: 1px solid $main-color;
 
     @media only screen and (max-width: $breakpoint-mobile) {
-      padding: 5px 20px;
-      justify-content: flex-start;
+      padding: 5px;
     }
   }
 
@@ -33,13 +32,14 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-left: 15px;
     padding: 5px 0px 5px 13px;
     cursor: pointer;
     border: 1px solid $main-color;
     border-radius: $border-radius-small;
 
     @media only screen and (max-width: $breakpoint-mobile) {
-      margin-right: 40px;
+      margin-left: 0px;
     }
   }
 
@@ -47,12 +47,16 @@
     position: absolute;
     z-index: 1111;
     display: block;
-    margin: 3px;
+    margin: 3px 3px 3px 13px;
     padding: 10px;
     border: 1px solid $main-color;
     border-radius: $border-radius-small;
     background-color: $bg-color;
     transition: 0.3;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      margin: 3px 3px 3px 0px;
+    }
 
     &--hidden {
       display: none;
@@ -80,22 +84,31 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-left: 15px;
     padding: 5px 0px 5px 13px;
     cursor: pointer;
     border: 1px solid $main-color;
     border-radius: $border-radius-small;
     width: 130px;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      margin-left: 5px;
+    }
   }
 
   &__sort-list {
     position: absolute;
     z-index: 1111;
     display: block;
-    margin: 3px;
+    margin: 3px 3px 3px 13px;
     padding: 10px;
     border: 1px solid $main-color;
     border-radius: $border-radius-small;
     background-color: $bg-color;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      margin: 3px 3px 3px 0px;
+    }
 
     &--hidden {
       display: none;
@@ -130,5 +143,14 @@
 
   &__task {
     margin: 5px;
+  }
+
+  &__btn {
+    margin-left: 15px;
+    padding: 8px 25px;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      padding: 8px 15px;
+    }
   }
 }

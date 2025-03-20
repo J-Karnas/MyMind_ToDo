@@ -24,6 +24,7 @@ CREATE TABLE tasks (
     description TEXT,
     category_id INT,
     priority ENUM('0', 'I', 'II', 'III', 'IV', 'V'),
+    status VARCHAR(30) NOT NULL,
     due_date DATETIME,
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL,

@@ -153,7 +153,7 @@ noteInfoModal.forEach((note) => {
   });
 });
 
-// Kateorie
+// Kategorie
 
 categoryInfoModal.forEach((category) => {
   category.addEventListener("click", () => {
@@ -271,4 +271,53 @@ document.querySelectorAll(".form__edit-document").forEach((button) => {
       }
     }
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Funkcja do obsługi zmiany stanu checkboxa
+  function handleCheckboxChange(checkbox, selectElement) {
+    // Sprawdź, czy checkbox jest odznaczony
+    if (!checkbox.checked) {
+      selectElement.disabled = true; // Dezaktywuj listę wyboru
+      selectElement.value = "null"; // Ustaw wartość na "Brak przypomnień"
+    } else {
+      selectElement.disabled = false; // Aktywuj listę wyboru
+    }
+  }
+
+  // Obsługa dla modala dodawania zadania
+  const addTaskCheckbox = document.querySelector(
+    '.modal--addTaskModal input[name="checkboxReminder"]'
+  );
+  const addTaskSelect = document.querySelector(
+    '.modal--addTaskModal select[name="notification"]'
+  );
+
+  if (addTaskCheckbox && addTaskSelect) {
+    // Dodaj nasłuchiwanie na zmianę stanu checkboxa
+    addTaskCheckbox.addEventListener("change", function () {
+      handleCheckboxChange(addTaskCheckbox, addTaskSelect);
+    });
+
+    // Sprawdź stan checkboxa przy ładowaniu strony
+    handleCheckboxChange(addTaskCheckbox, addTaskSelect);
+  }
+
+  // Obsługa dla modala edycji zadania
+  const editTaskCheckbox = document.querySelector(
+    '.modal--editTaskModal input[name="checkboxReminderEdit"]'
+  );
+  const editTaskSelect = document.querySelector(
+    '.modal--editTaskModal select[name="notificationEdit"]'
+  );
+
+  if (editTaskCheckbox && editTaskSelect) {
+    // Dodaj nasłuchiwanie na zmianę stanu checkboxa
+    editTaskCheckbox.addEventListener("change", function () {
+      handleCheckboxChange(editTaskCheckbox, editTaskSelect);
+    });
+
+    // Sprawdź stan checkboxa przy ładowaniu strony
+    handleCheckboxChange(editTaskCheckbox, editTaskSelect);
+  }
 });

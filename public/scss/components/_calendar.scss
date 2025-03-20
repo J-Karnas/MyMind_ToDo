@@ -11,7 +11,7 @@
 
   &--other-page {
     position: fixed;
-    top: 61px;
+    top: 120px;
     right: -310px;
     width: 310px;
   }
@@ -22,7 +22,7 @@
 
   @media only screen and (max-width: $breakpoint-mobile) {
     position: fixed;
-    top: 51px;
+    top: 108px;
     right: -310px;
     width: 310px;
 

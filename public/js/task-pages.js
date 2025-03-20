@@ -1,10 +1,29 @@
-// Kategorie
-
 document.addEventListener("DOMContentLoaded", function () {
   // Pobierz elementy dla kategorii
   const categoryButton = document.querySelector(".tasks__btn-category-title");
   const categoryList = document.querySelector(".tasks__category-list");
   const categoryIcon = categoryButton?.querySelector(".tasks__icon-default");
+
+  // Pobierz elementy dla sortowania
+  const sortButton = document.querySelector(".tasks__btn-sort-title");
+  const sortList = document.querySelector(".tasks__sort-list");
+  const sortIcon = sortButton?.querySelector(".tasks__icon-default");
+
+  // Funkcja do zamykania listy sortowania
+  function closeSortList() {
+    if (sortList && sortIcon) {
+      sortList.classList.add("tasks__sort-list--hidden");
+      sortIcon.classList.remove("tasks__icon-default--up");
+    }
+  }
+
+  // Funkcja do zamykania listy kategorii
+  function closeCategoryList() {
+    if (categoryList && categoryIcon) {
+      categoryList.classList.add("tasks__category-list--hidden");
+      categoryIcon.classList.remove("tasks__icon-default--up");
+    }
+  }
 
   // Funkcja do obsługi kliknięcia w przycisk kategorii
   if (categoryButton && categoryList && categoryIcon) {
@@ -12,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
       event.stopPropagation(); // Zapobiega natychmiastowemu zamknięciu listy
       categoryList.classList.toggle("tasks__category-list--hidden"); // Przełącz widoczność listy
       categoryIcon.classList.toggle("tasks__icon-default--up"); // Przełącz ikonę
+
+      // Zamknij listę sortowania, jeśli jest otwarta
+      closeSortList();
 
       // Zamknij inne otwarte elementy (calendar, nav-mobile, nav)
       closeAllOpenElements();
@@ -23,20 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
         !categoryList.contains(event.target) &&
         !categoryButton.contains(event.target)
       ) {
-        categoryList.classList.add("tasks__category-list--hidden"); // Schowaj listę
-        categoryIcon.classList.remove("tasks__icon-default--up"); // Zresetuj ikonę
+        closeCategoryList();
       }
     });
   }
-});
-
-// Sortowanie
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Pobierz elementy dla sortowania
-  const sortButton = document.querySelector(".tasks__btn-sort-title");
-  const sortList = document.querySelector(".tasks__sort-list");
-  const sortIcon = sortButton?.querySelector(".tasks__icon-default");
 
   // Funkcja do obsługi kliknięcia w przycisk sortowania
   if (sortButton && sortList && sortIcon) {
@@ -44,6 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
       event.stopPropagation(); // Zapobiega natychmiastowemu zamknięciu listy
       sortList.classList.toggle("tasks__sort-list--hidden"); // Przełącz widoczność listy
       sortIcon.classList.toggle("tasks__icon-default--up"); // Przełącz ikonę
+
+      // Zamknij listę kategorii, jeśli jest otwarta
+      closeCategoryList();
 
       // Zamknij inne otwarte elementy (calendar, nav-mobile, nav)
       closeAllOpenElements();
@@ -55,41 +70,20 @@ document.addEventListener("DOMContentLoaded", function () {
         !sortList.contains(event.target) &&
         !sortButton.contains(event.target)
       ) {
-        sortList.classList.add("tasks__sort-list--hidden"); // Schowaj listę
-        sortIcon.classList.remove("tasks__icon-default--up"); // Zresetuj ikonę
+        closeSortList();
       }
     });
   }
-});
 
-// Zamykanie po kliknięciu w mobile-nav i calendar
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Pobierz elementy dla kategorii
-  const categoryButton = document.querySelector(".tasks__btn-category-title");
-  const categoryList = document.querySelector(".tasks__category-list");
-  const categoryIcon = categoryButton?.querySelector(".tasks__icon-default");
-
-  // Pobierz elementy dla sortowania
-  const sortButton = document.querySelector(".tasks__btn-sort-title");
-  const sortList = document.querySelector(".tasks__sort-list");
-  const sortIcon = sortButton?.querySelector(".tasks__icon-default");
-
-  // Pobierz przyciski w kalendarzu, mobilnej liście i headerze
+  // Zamykanie po kliknięciu w mobile-nav i calendar
   const calendarBtn = document.querySelector(".calendar__btn");
   const mobileListBtn = document.querySelector(".mobile-list__button");
   const burgerLink = document.querySelector(".header-login__link--burger");
 
   // Funkcja do zamykania list
   function closeLists() {
-    if (categoryList && categoryIcon) {
-      categoryList.classList.add("tasks__category-list--hidden");
-      categoryIcon.classList.remove("tasks__icon-default--up");
-    }
-    if (sortList && sortIcon) {
-      sortList.classList.add("tasks__sort-list--hidden");
-      sortIcon.classList.remove("tasks__icon-default--up");
-    }
+    closeCategoryList();
+    closeSortList();
   }
 
   // Zamknij listy po kliknięciu w przycisk kalendarza

@@ -13,7 +13,19 @@ class ViewTasksController extends AbstractController
     public function viewTasksRender(): Void
     {
         if (isset($_SESSION['status']) && $_SESSION['status'] = "login") {
-            (new View())->viewer("viewTasks");
+            $this->paramView['category'] = $this->category();
+
+            $viewTasks = new ViewTasksModel();
+
+            $filtr = $_GET['categories'] ?? [];
+            $filtrNone = $_GET['categoriesNone'] ?? [];
+            $sort = $_GET['sort'] ?? "";
+
+            if ($result = $viewTasks->viewTasksFiltr((int) $_SESSION['userId'], $filtr, $filtrNone, $sort)) {
+                $this->paramView['tasks'] = $result;
+            }
+
+            (new View())->viewer("viewTasks", $this->paramView);
         } else {
             $this->forwarding("/login");
         }

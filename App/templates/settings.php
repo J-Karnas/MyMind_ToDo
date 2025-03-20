@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pl  ">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyMind - Ustawienia</title>
     <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="icon" href="/public/image/img/MyMind.png" type="image/png">
 </head>
 
 <body class="page">
@@ -35,7 +36,16 @@
             <ul class="nav__sublist">
                 <p class="nav__section-name">Zadania</p>
                 <li class="nav__item">
-                    <a href="/viewTasks" class="nav__link">Lista zadań</a>
+                    <a href="/viewTasks" class="nav__link">Wszystkie zadania</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/today" class="nav__link">Na dzisiaj</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/upcoming" class="nav__link">Przyszły tydzień</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/ended" class="nav__link">Zakończone</a>
                 </li>
             </ul>
 
@@ -46,26 +56,11 @@
                 </li>
             </ul>
 
-            <ul class="nav__sublist">
-                <p class="nav__section-name">Przegląd zadań</p>
-                <li class="nav__item">
-                    <a href="/today" class="nav__link">Dzisiaj</a>
-                </li>
-                <li class="nav__item">
-                    <a href="/upcoming" class="nav__link">Nadchodzące</a>
-                </li>
-                <li class="nav__item">
-                    <a href="/ended" class="nav__link">Zakończone</a>
-                </li>
-                <li class="nav__item">
-                    <a href="/remove" class="nav__link">Usunięte</a>
-                </li>
-            </ul>
 
             <ul class="nav__sublist">
-                <p class="nav__section-name">Pozostałe</p>
+                <p class="nav__section-name">Notatki</p>
                 <li class="nav__item">
-                    <a href="/notes" class="nav__link">Notatki</a>
+                    <a href="/notes" class="nav__link">Lista notatek</a>
                 </li>
             </ul>
 

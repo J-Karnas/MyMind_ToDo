@@ -26,9 +26,9 @@ abstract class AbstractModel
     private function createConnection(): void
     {
 
-        require_once 'App/configuration/configurationDB.php';
+        $config = require 'App/configuration/configurationDB.php';
 
-        $dsn = "mysql:host={$host};dbname={$database}";
+        $dsn = "mysql:host={$config['host']};dbname={$config['database']}";
         $options = array(
             PDO::ATTR_PERSISTENT => true,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -37,8 +37,8 @@ abstract class AbstractModel
         try {
             $this->dbh = new PDO(
                 $dsn,
-                $user,
-                $password,
+                $config['user'],
+                $config['password'],
                 $options
             );
         } catch (PDOException $e) {
