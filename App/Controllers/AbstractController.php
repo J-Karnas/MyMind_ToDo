@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
+use App\Tools\Mailer;
 
 use App\Models\ViewCategoriesModel;
 
@@ -23,5 +24,10 @@ abstract class AbstractController
         if ($result = $viewCategories->viewCategories((int) $_SESSION['userId'])) {
             return $result;
         }
+    }
+
+    protected function sendWelcomeEmail(string $to, array $data) {
+        $mailer = new Mailer();
+        return $mailer->send($to, 'Welcome!', 'welcome', $data);
     }
 }
