@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 use App\Tools\Encryption;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
+require_once 'App/Tools/envEngine.php';
 
 class Mailer
 {
@@ -47,7 +48,6 @@ class Mailer
             $this->mail->send();
             return;
         } catch (Exception $e) {
-
             return "Email sending failed: " . $this->mail->ErrorInfo;
         }
     }

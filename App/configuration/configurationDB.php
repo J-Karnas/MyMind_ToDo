@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace App\configuration;
 return [
-    'host' => 'localhost',
-    'database' => 'mymind_v3',
-    'port' => '3306',
-    'user' => 'root',
+    'host' => DATABASE_HOST,
+    'database' => DATABASE_NAME,
+    'port' => DATABASE_PORT,
+    'user' => DATABASE_USER,
     'password' => '',
 ];

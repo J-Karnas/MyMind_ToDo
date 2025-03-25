@@ -76,11 +76,12 @@
 <div class="modal modal--editTaskModal modal--hide">
 
     <form class="form frame" method="post" action="/editTask">
-        <input type="hidden" name="id">
 
-        <input type="text" class="form__input input--second" id="edittitle" name="titleTaskEdit" placeholder="Tytuł zadania">
+        <input type="hidden" class="editTaskId" name="id" value="">
 
-        <textarea class="form__textarea form__textarea--task" placeholder="Opis..." name="descriptionTasEdit"></textarea>
+        <input type="text" class="form__input input--second" name="titleTaskEdit" placeholder="Tytuł zadania">
+
+        <textarea class="form__textarea form__textarea--task" placeholder="Opis..." name="descriptionTaskEdit"></textarea>
 
         <div class="form__container-category-priority">
 
@@ -125,7 +126,8 @@
                 <input class="form__reminders-checkbox" type="checkbox" name="checkboxReminderEdit">
             </p>
 
-            <p class="form__title-notification">Częstotliwość powiadomień: </p>
+            <p class=" form__title-notification">Częstotliwość powiadomień:
+            </p>
 
             <select name="notificationEdit" class="form__notification-select">
                 <option value="null" class="form__notification-btn">
@@ -151,13 +153,17 @@
 
 <div class="modal modal--previewTaskModal modal--hide">
 
-    <form class="form frame">
+    <form class="form frame" action="/previewTask">
 
-        <p class="form__title form__title--title">Jakiś tytuł</p>
-        <p class="form__title form__title--description">Lorem ipsum odor amet, consectetuer adipiscing elit. Bibendum habitant eu molestie urna purus molestie pretium? Justo ante scelerisque donec etiam posuere eros cras litora. Dui consequat maximus libero donec nam massa tortor pulvinar amet. Sociosqu ac sit ultricies facilisi tempor parturient.</p>
+        <input type="hidden" class="previewTaskId" name="id" value="">
+
+        <p class="form__title form__title--title"></p>
+        <p class="form__title form__title--description"></p>
         <p class="form__title form__title--preview form__title--category">Kategoria: </p>
         <p class="form__title form__title--preview form__title--priority">Priorytet: </p>
         <p class="form__title form__title--preview form__title--end-date">Koniec: </p>
+
+        <input type="hidden" class="previewTaskReminder" name="reminder" value="no">
 
         <div class="form__container-preview-btn">
             <button class="form__preview-btn"><span class="form__check-box"></span></button>
@@ -192,6 +198,8 @@
 
     <form class="form frame" method="post" action="/editCategory">
 
+        <input type="hidden" class="editCategoryId" name="id" value="">
+
         <input type="text" class="form__input form__input--category input--second" name="categoryEdit" placeholder="Nazwa kategorii">
 
 
@@ -206,7 +214,9 @@
 
 <div class="modal modal--previewCategoryModal modal--hide">
 
-    <form class="form frame">
+    <form class="form frame" action="/previewCategory">
+
+        <input type="hidden" class="previewCategoryId" name="id" value="">
 
         <p class="form__title form__title--preview-category form__title--category"></p>
 
@@ -224,7 +234,7 @@
 
 <div class="modal modal--addNoteModal modal--hide">
 
-    <form class="form frame" action="/addNote" method="post">
+    <form class="form frame" method="post" action="/addNote">
 
         <input type="text" class="form__input form__input--note input--second" name="titleNote" placeholder="Tytuł notatki">
 
@@ -240,9 +250,11 @@
 
 <div class="modal modal--editNoteModal modal--hide">
 
-    <form class="form frame" action="/editNote" method="post">
+    <form class="form frame" method="post" action="/editNote">
 
-        <input type="text" class="form__input form__input--note input--second" name="titleNote" placeholder="Tytuł notatki">
+        <input type="hidden" class="editNoteId" name="id" value="">
+
+        <input type="text" class="form__input form__input--note input--second" name="titleNoteEdit" placeholder="Tytuł notatki">
 
         <textarea class="form__textarea" placeholder="Opis..." name="descriptionNote"></textarea>
         <div class="form__container-btn">
@@ -256,7 +268,9 @@
 
 <div class="modal modal--previewNoteModal modal--hide">
 
-    <form class="form frame">
+    <form class="form frame" action="/previewNote">
+
+        <input type="hidden" class="previewNoteId" name="id" value="">
 
         <p class="form__title form__title--note"></p>
         <p class="form__title form__description--note form__description--note--view"></p>

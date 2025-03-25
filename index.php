@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+
+
 if (!isset($_SESSION)) {
     session_start();
 }
+
+require_once 'App/Tools/envEngine.php';
 
 require_once 'App\Tools\errorhan.php';
 

@@ -7,6 +7,7 @@ namespace App\Tools;
 use App\Controllers\EmailController;
 
 require_once 'vendor/autoload.php';
+require_once 'App/Tools/envEngine.php';
 
 $controller = new EmailController();
 echo $controller->Welcome();

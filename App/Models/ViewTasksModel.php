@@ -34,7 +34,7 @@ class ViewTasksModel extends AbstractModel
 
     public function viewTasksMain(int $id): array | Bool
     {
-        $this->query('SELECT tasks.id, tasks.user_id, title, description, category_id, priority, status, DATE(due_date) AS due_date, reminder, reminder_interval, name FROM tasks LEFT JOIN categories ON categories.id = tasks.category_id WHERE status = "progress" AND due_date <> "NULL" AND tasks.user_id = :userid ORDER BY due_date ASC LIMIT 15');
+        $this->query('SELECT tasks.id, tasks.user_id, title, description, category_id, priority, status, DATE_FORMAT(due_date, \'%d-%m-%Y\') AS due_date, reminder, reminder_interval, name FROM tasks LEFT JOIN categories ON categories.id = tasks.category_id WHERE status = "progress" AND due_date <> "NULL" AND tasks.user_id = :userid ORDER BY due_date ASC LIMIT 15');
 
         $this->bind(':userid', $id);
 
@@ -82,7 +82,7 @@ class ViewTasksModel extends AbstractModel
                 break;
         }
 
-        $this->query('SELECT tasks.id, tasks.user_id, title, description, category_id, priority, status, DATE(due_date) AS due_date, reminder, reminder_interval, name FROM tasks LEFT JOIN categories ON categories.id = tasks.category_id WHERE status = "progress" AND tasks.user_id = :userid ' . $sql . $order);
+        $this->query('SELECT tasks.id, tasks.user_id, title, description, category_id, priority, status, DATE_FORMAT(due_date, \'%d-%m-%Y\') AS due_date, reminder, reminder_interval, name FROM tasks LEFT JOIN categories ON categories.id = tasks.category_id WHERE status = "progress" AND tasks.user_id = :userid ' . $sql . $order);
 
         $this->bind(':userid', $id);
         foreach ($filtr as $index => $value) {
@@ -127,11 +127,11 @@ class ViewTasksModel extends AbstractModel
                 break;
         }
 
-        $this->query('SELECT 
-        tasks.id, tasks.user_id, title, description, category_id, priority, status, DATE(due_date) AS due_date, reminder, reminder_interval, name FROM tasks 
-        LEFT JOIN categories ON categories.id = tasks.category_id 
-        WHERE status = "progress" 
-        AND DATE(due_date) = CURDATE() 
+        $this->query('SELECT
+        tasks.id, tasks.user_id, title, description, category_id, priority, status, DATE_FORMAT(due_date, \'%d-%m-%Y\') AS due_date, reminder, reminder_interval, name FROM tasks
+        LEFT JOIN categories ON categories.id = tasks.category_id
+        WHERE status = "progress"
+        AND DATE(due_date) = CURDATE()
         AND tasks.user_id = :userid ' . $sql . $order);
 
         $this->bind(':userid', $id);
@@ -183,11 +183,11 @@ class ViewTasksModel extends AbstractModel
                 break;
         }
 
-        $this->query('SELECT 
-        tasks.id, tasks.user_id, title, description, category_id, priority, status, DATE(due_date) AS due_date, reminder, reminder_interval, name FROM tasks 
-        LEFT JOIN categories ON categories.id = tasks.category_id 
-        WHERE status = "progress" 
-        AND (DATE(due_date) BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY)) 
+        $this->query('SELECT
+        tasks.id, tasks.user_id, title, description, category_id, priority, status, DATE_FORMAT(due_date, \'%d-%m-%Y\') AS due_date, reminder, reminder_interval, name FROM tasks
+        LEFT JOIN categories ON categories.id = tasks.category_id
+        WHERE status = "progress"
+        AND (DATE(due_date) BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY))
         AND tasks.user_id = :userid ' . $sql . $order);
 
         $this->bind(':userid', $id);
@@ -239,10 +239,10 @@ class ViewTasksModel extends AbstractModel
                 break;
         }
 
-        $this->query('SELECT 
-        tasks.id, tasks.user_id, title, description, category_id, priority, status, DATE(due_date) AS due_date, reminder, reminder_interval, name FROM tasks 
-        LEFT JOIN categories ON categories.id = tasks.category_id 
-        WHERE status = "done"  
+        $this->query('SELECT
+        tasks.id, tasks.user_id, title, description, category_id, priority, status, DATE_FORMAT(due_date, \'%d-%m-%Y\') AS due_date, reminder, reminder_interval, name FROM tasks
+        LEFT JOIN categories ON categories.id = tasks.category_id
+        WHERE status = "done"
         AND tasks.user_id = :userid ' . $sql . $order);
 
         $this->bind(':userid', $id);

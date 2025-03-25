@@ -182,6 +182,7 @@ taskInfoModal.forEach((task) => {
     const title = task.querySelector(".task__title").textContent;
     const description = task.querySelector(".task__description").textContent;
     const endDate = task.querySelector(".task__end").textContent;
+    const reminder = task.querySelector(".task__check-reminder");
 
     const previewTitle = previewTaskModal.querySelector(".form__title--title");
     const previewDescription = previewTaskModal.querySelector(
@@ -195,6 +196,10 @@ taskInfoModal.forEach((task) => {
     );
     const previewEndDate = previewTaskModal.querySelector(
       ".form__title--end-date"
+    );
+
+    const previewReminder = previewTaskModal.querySelector(
+      ".previewTaskReminder"
     );
 
     if (previewTitle) {
@@ -213,65 +218,21 @@ taskInfoModal.forEach((task) => {
     }
     if (previewEndDate) previewEndDate.textContent = `${endDate}`;
 
+    if (previewReminder) {
+      if (reminder.classList.contains("task__check-reminder--no")) {
+        previewReminder.value = "reminderNo";
+      } else {
+        previewReminder.value = "reminderYes";
+      }
+    }
+
     openModal(previewTaskModal);
   });
 });
 
-document.querySelectorAll(".form__edit-document").forEach((button) => {
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    // Znajdź najbliższy modal podglądu
-    const previewModal = button.closest(".modal");
-    closeModal(previewModal);
-
-    // Określ typ modala (task, category, note) na podstawie klasy
-    if (previewModal.classList.contains("modal--previewTaskModal")) {
-      // Otwórz modal edycji zadania
-      openModal(document.querySelector(".modal--editTaskModal"));
-    } else if (previewModal.classList.contains("modal--previewCategoryModal")) {
-      // Pobierz dane z modala podglądu kategorii
-      const title = previewModal.querySelector(
-        ".form__title--category"
-      ).textContent;
-
-      // Otwórz modal edycji kategorii
-      const editCategoryModal = document.querySelector(
-        ".modal--editCategoryModal"
-      );
-      if (editCategoryModal) {
-        // Wypełnij pole formularza w modalach edycji
-        editCategoryModal.querySelector(
-          ".form__input[placeholder='Nazwa kategorii']"
-        ).value = title;
-
-        // Otwórz modal edycji kategorii
-        openModal(editCategoryModal);
-      }
-    } else if (previewModal.classList.contains("modal--previewNoteModal")) {
-      // Pobierz dane z modala podglądu notatki
-      const title =
-        previewModal.querySelector(".form__title--note").textContent;
-      const description = previewModal.querySelector(
-        ".form__description--note"
-      ).textContent;
-
-      // Otwórz modal edycji notatki
-      const editNoteModal = document.querySelector(".modal--editNoteModal");
-      if (editNoteModal) {
-        // Wypełnij pola formularza w modalach edycji
-        editNoteModal.querySelector(
-          ".form__input[placeholder='Tytuł notatki']"
-        ).value = title;
-        editNoteModal.querySelector(".form__textarea").value =
-          description.trim();
-
-        // Otwórz modal edycji notatki
-        openModal(editNoteModal);
-      }
-    }
-  });
-});
+//
+//
+//
 
 document.addEventListener("DOMContentLoaded", function () {
   // Funkcja do obsługi zmiany stanu checkboxa
@@ -320,4 +281,189 @@ document.addEventListener("DOMContentLoaded", function () {
     // Sprawdź stan checkboxa przy ładowaniu strony
     handleCheckboxChange(editTaskCheckbox, editTaskSelect);
   }
+});
+
+//
+//
+//
+
+function setSelectedCategory(category) {
+  const selectElement = document.querySelector(
+    '.modal--editTaskModal select[name="categoryEdit"]'
+  );
+
+  if (!selectElement) return;
+
+  // Trim the category name and remove "Kategoria: " prefix if present
+  const categoryName = category.replace(/^Kategoria:\s*/i, "").trim();
+
+  // Find the option that matches the category name
+  const options = selectElement.options;
+  for (let i = 0; i < options.length; i++) {
+    if (options[i].textContent.trim() === categoryName) {
+      selectElement.selectedIndex = i;
+      return;
+    }
+  }
+
+  // If no match found, select "Brak kategorii"
+  selectElement.value = "null";
+}
+
+function setSelectedPriority(priorityText) {
+  const prioritySelect = document.querySelector(
+    '.modal--editTaskModal select[name="priorityEdit"]'
+  );
+
+  if (!prioritySelect) return;
+
+  // Usuń prefix "Priorytet: " i białe znaki
+  const cleanPriority = priorityText.replace(/^Priorytet:\s*/i, "").trim();
+
+  // Mapowanie tekstu priorytetu na wartości
+  const priorityMap = {
+    I: "1",
+    II: "2",
+    III: "3",
+    IV: "4",
+    V: "5",
+  };
+
+  // Znajdź odpowiednią wartość
+  const priorityValue = priorityMap[cleanPriority] || "null";
+
+  // Ustaw wybraną opcję
+  prioritySelect.value = priorityValue;
+}
+
+//
+//
+//
+
+document.querySelectorAll(".form__edit-document").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // Znajdź najbliższy modal podglądu
+    const previewModal = button.closest(".modal");
+    closeModal(previewModal);
+
+    // Określ typ modala (task, category, note) na podstawie klasy
+    if (previewModal.classList.contains("modal--previewTaskModal")) {
+      // Pobierz dane z modala podglądu zadania
+
+      // const id = previewModal.querySelector("previewTaskId").textContent;
+      const title = previewModal.querySelector(
+        ".form__title--title"
+      ).textContent;
+      const description = previewModal.querySelector(
+        ".form__title--description"
+      ).textContent;
+      const category = previewModal.querySelector(
+        ".form__title--category"
+      ).textContent;
+      const priority = previewModal.querySelector(
+        ".form__title--priority"
+      ).textContent;
+      const endDate = previewModal.querySelector(
+        ".form__title--end-date"
+      ).textContent;
+
+      const reminder = previewModal.querySelector(".previewTaskReminder").value;
+
+      //
+
+      // Otwórz modal edycji zadania
+      const editTaskModal = document.querySelector(".modal--editTaskModal");
+      if (editTaskModal) {
+        // editTaskModal.querySelector(".form__input[name='id']").value =
+        //   id.trim();
+
+        editTaskModal.querySelector(
+          ".form__input[name='titleTaskEdit']"
+        ).value = title.trim();
+
+        editTaskModal.querySelector(
+          ".form__textarea[name='descriptionTaskEdit']"
+        ).value = description.trim();
+
+        //
+        //
+        //
+
+        setSelectedCategory(category);
+
+        setSelectedPriority(priority);
+
+        const date = endDate.replace(/^Koniec:\s*/i, "").trim();
+
+        function convertToISODate(dateString) {
+          const [day, month, year] = dateString.split("-");
+          const date = new Date(`${year}-${month}-${day}`);
+
+          return date.toISOString().split("T")[0];
+        }
+
+        editTaskModal.querySelector(".form__reminders-date").value =
+          convertToISODate(date);
+
+        openModal(editTaskModal);
+      }
+    } else if (previewModal.classList.contains("modal--previewCategoryModal")) {
+      // Pobierz dane z modala podglądu kategorii
+
+      // const id = previewModal.querySelector("previewCategoryId").textContent;
+      const title = previewModal.querySelector(
+        ".form__title--category"
+      ).textContent;
+
+      // Otwórz modal edycji kategorii
+
+      const editCategoryModal = document.querySelector(
+        ".modal--editCategoryModal"
+      );
+      if (editCategoryModal) {
+        // Wypełnij pole formularza w modalu kategorii
+
+        // editCategoryModal.querySelector(
+        //   ".form__input[.form__input[name='id']]"
+        // ).value = id.trim();
+
+        editCategoryModal.querySelector(
+          ".form__input[placeholder='Nazwa kategorii']"
+        ).value = title.trim();
+
+        // Otwórz modal edycji kategorii
+        openModal(editCategoryModal);
+      }
+    } else if (previewModal.classList.contains("modal--previewNoteModal")) {
+      // Pobierz dane z modala podglądu notatki
+
+      // const id = previewModal.querySelector("previewNoteId").textContent;
+
+      const title =
+        previewModal.querySelector(".form__title--note").textContent;
+      const description = previewModal.querySelector(
+        ".form__description--note"
+      ).textContent;
+
+      // Otwórz modal edycji notatki
+      const editNoteModal = document.querySelector(".modal--editNoteModal");
+      if (editNoteModal) {
+        // Wypełnij pola formularza w modalach edycji
+
+        // editNoteModal.querySelector(".form__input[name='id']").value =
+        //   id.trim();
+
+        editNoteModal.querySelector(
+          ".form__input[placeholder='Tytuł notatki']"
+        ).value = title;
+        editNoteModal.querySelector(".form__textarea").value =
+          description.trim();
+
+        // Otwórz modal edycji notatki
+        openModal(editNoteModal);
+      }
+    }
+  });
 });
