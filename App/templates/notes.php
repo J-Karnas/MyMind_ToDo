@@ -61,6 +61,7 @@
                     <p class="notes__note-description">
                         <?php echo $note['description']; ?>
                     </p>
+                    <input type="hidden" value="<?php echo $note['id']; ?>" class="previewNoteId">
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>

@@ -77,7 +77,7 @@
 
     <form class="form frame" method="post" action="/editTask">
 
-        <input type="hidden" class="editTaskId" name="id" value="">
+        <input type="hidden" name="id" class="editTaskId" value="">
 
         <input type="text" class="form__input input--second" name="titleTaskEdit" placeholder="Tytuł zadania">
 
@@ -155,7 +155,7 @@
 
     <form class="form frame" action="/previewTask">
 
-        <input type="hidden" class="previewTaskId" name="id" value="">
+        <input type="hidden" class="previewTaskId" value="">
 
         <p class="form__title form__title--title"></p>
         <p class="form__title form__title--description"></p>
@@ -198,7 +198,7 @@
 
     <form class="form frame" method="post" action="/editCategory">
 
-        <input type="hidden" class="editCategoryId" name="id" value="">
+        <input type="hidden" name="id" class="editCategoryId">
 
         <input type="text" class="form__input form__input--category input--second" name="categoryEdit" placeholder="Nazwa kategorii">
 
@@ -216,7 +216,7 @@
 
     <form class="form frame" action="/previewCategory">
 
-        <input type="hidden" class="previewCategoryId" name="id" value="">
+        <input type="hidden" class="previewCategoryId" value="">
 
         <p class="form__title form__title--preview-category form__title--category"></p>
 
@@ -252,11 +252,11 @@
 
     <form class="form frame" method="post" action="/editNote">
 
-        <input type="hidden" class="editNoteId" name="id" value="">
+        <input type="hidden" name="id" class="editNoteId" value="">
 
         <input type="text" class="form__input form__input--note input--second" name="titleNoteEdit" placeholder="Tytuł notatki">
 
-        <textarea class="form__textarea" placeholder="Opis..." name="descriptionNote"></textarea>
+        <textarea class="form__textarea" placeholder="Opis..." name="descriptionNoteEdit"></textarea>
         <div class="form__container-btn">
             <button class="form__btn form__btn--confirm button">Potwierdź</button>
             <button class="form__btn form__btn--cancel button">Anuluj</button>
@@ -270,7 +270,7 @@
 
     <form class="form frame" action="/previewNote">
 
-        <input type="hidden" class="previewNoteId" name="id" value="">
+        <input type="hidden" class="previewNoteId" value="">
 
         <p class="form__title form__title--note"></p>
         <p class="form__title form__description--note form__description--note--view"></p>

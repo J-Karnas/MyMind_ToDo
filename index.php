@@ -36,10 +36,12 @@ $router->get("/settings", "SettingsController@settingsRender");
 //viewTasks
 $router->get("/viewTasks", "ViewTasksController@viewTasksRender");
 $router->post("/addTasks", "ViewTasksController@postTask");
+$router->post("/editTask", "ViewTasksController@editTask");
 
 //viewCategories
 $router->get("/viewCategories", "ViewCategoriesController@viewCategoriesRender");
 $router->post("/addCategories", "ViewCategoriesController@postCategory");
+$router->post("/editCategory", "ViewCategoriesController@editCategory");
 
 //today
 $router->get("/today", "todayController@todayRender");
@@ -53,7 +55,7 @@ $router->get("/ended", "endedController@endedRender");
 //notes
 $router->get("/notes", "notesController@notesRender");
 $router->post("/addNote", "notesController@postNote");
-
+$router->post("/editNote", "notesController@editNote");
 
 //logout
 $router->get("/logout", "LoginController@logout");

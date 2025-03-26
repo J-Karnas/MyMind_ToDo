@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             padding: 20px;
             text-align: center;
         }
+
         .container {
             background-color: #fff;
             padding: 20px;
@@ -20,13 +22,16 @@
             max-width: 500px;
             margin: 0 auto;
         }
+
         h2 {
             color: #1A8D60;
         }
+
         p {
             font-size: 16px;
             line-height: 1.5;
         }
+
         .button {
             display: inline-block;
             padding: 12px 20px;
@@ -38,9 +43,11 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
+
         .button:hover {
             background-color: #207a56;
         }
+
         .footer {
             margin-top: 20px;
             font-size: 12px;
@@ -48,6 +55,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Witaj, <?= htmlspecialchars($name) ?>!</h2>
@@ -58,4 +66,5 @@
         <p class="footer">Pozdrawiamy, <br> Zespół MyMaind</p>
     </div>
 </body>
+
 </html>

@@ -37,4 +37,19 @@ class NotesModel extends AbstractModel
             return false;
         }
     }
+
+    public function editNote(array $data): bool
+    {
+        $this->query('UPDATE notes SET title = :title, description = :description WHERE id = :id');
+
+        $this->bind(':id', $data['id']);
+        $this->bind(':title', $data['title']);
+        $this->bind(':description', $data['description']);
+
+        if ($this->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

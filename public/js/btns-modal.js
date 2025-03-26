@@ -135,18 +135,29 @@ noteInfoModal.forEach((note) => {
     const description = note.querySelector(
       ".notes__note-description"
     ).textContent;
+    const noteId = note.querySelector(".previewNoteId").value;
 
     const previewTitle = previewNoteModal.querySelector(".form__title--note");
     const previewDescription = previewNoteModal.querySelector(
       ".form__description--note"
     );
+    const previewId = previewNoteModal.querySelector(".previewNoteId");
+
+    console.log(previewTitle.textContent.trim());
 
     if (previewTitle) {
       previewTitle.textContent = title;
     }
 
+    console.log(previewDescription.textContent.trim());
+
     if (previewDescription) {
       previewDescription.textContent = description;
+    }
+    console.log(previewId.value.trim());
+
+    if (previewId) {
+      previewId.value = noteId;
     }
 
     openModal(previewNoteModal);
@@ -161,12 +172,21 @@ categoryInfoModal.forEach((category) => {
       ".viewCategories__category-title"
     ).textContent;
 
+    const categoryEditId = category.querySelector(".previewCategoryId").value;
+
     const previewTitle = previewCategoryModal.querySelector(
       ".form__title--category"
     );
 
+    const previewNoteId =
+      previewCategoryModal.querySelector(".previewCategoryId");
+
     if (previewTitle) {
-      previewTitle.textContent = title;
+      previewTitle.textContent = title.trim();
+    }
+
+    if (previewNoteId) {
+      previewNoteId.value = categoryEditId.trim();
     }
 
     openModal(previewCategoryModal);
@@ -177,6 +197,7 @@ categoryInfoModal.forEach((category) => {
 
 taskInfoModal.forEach((task) => {
   task.addEventListener("click", () => {
+    const taskEditId = task.querySelector(".previewTaskId").value;
     const category = task.querySelector(".task__category").textContent;
     const priority = task.querySelector(".task__priority").textContent;
     const title = task.querySelector(".task__title").textContent;
@@ -184,6 +205,7 @@ taskInfoModal.forEach((task) => {
     const endDate = task.querySelector(".task__end").textContent;
     const reminder = task.querySelector(".task__check-reminder");
 
+    const previewTaskId = previewTaskModal.querySelector(".previewTaskId");
     const previewTitle = previewTaskModal.querySelector(".form__title--title");
     const previewDescription = previewTaskModal.querySelector(
       ".form__title--description"
@@ -201,6 +223,10 @@ taskInfoModal.forEach((task) => {
     const previewReminder = previewTaskModal.querySelector(
       ".previewTaskReminder"
     );
+
+    if (previewTaskId) {
+      previewTaskId.value = taskEditId;
+    }
 
     if (previewTitle) {
       previewTitle.textContent = title;
@@ -352,7 +378,7 @@ document.querySelectorAll(".form__edit-document").forEach((button) => {
     if (previewModal.classList.contains("modal--previewTaskModal")) {
       // Pobierz dane z modala podglądu zadania
 
-      // const id = previewModal.querySelector("previewTaskId").textContent;
+      const previewId = previewModal.querySelector(".previewTaskId").value;
       const title = previewModal.querySelector(
         ".form__title--title"
       ).textContent;
@@ -369,15 +395,14 @@ document.querySelectorAll(".form__edit-document").forEach((button) => {
         ".form__title--end-date"
       ).textContent;
 
-      const reminder = previewModal.querySelector(".previewTaskReminder").value;
+      // const reminder = previewModal.querySelector(".previewTaskReminder").value;
 
       //
 
       // Otwórz modal edycji zadania
       const editTaskModal = document.querySelector(".modal--editTaskModal");
       if (editTaskModal) {
-        // editTaskModal.querySelector(".form__input[name='id']").value =
-        //   id.trim();
+        editTaskModal.querySelector(".editTaskId").value = previewId.trim();
 
         editTaskModal.querySelector(
           ".form__input[name='titleTaskEdit']"
@@ -386,10 +411,6 @@ document.querySelectorAll(".form__edit-document").forEach((button) => {
         editTaskModal.querySelector(
           ".form__textarea[name='descriptionTaskEdit']"
         ).value = description.trim();
-
-        //
-        //
-        //
 
         setSelectedCategory(category);
 
@@ -412,7 +433,8 @@ document.querySelectorAll(".form__edit-document").forEach((button) => {
     } else if (previewModal.classList.contains("modal--previewCategoryModal")) {
       // Pobierz dane z modala podglądu kategorii
 
-      // const id = previewModal.querySelector("previewCategoryId").textContent;
+      const previewId = previewModal.querySelector(".previewCategoryId").value;
+
       const title = previewModal.querySelector(
         ".form__title--category"
       ).textContent;
@@ -425,9 +447,8 @@ document.querySelectorAll(".form__edit-document").forEach((button) => {
       if (editCategoryModal) {
         // Wypełnij pole formularza w modalu kategorii
 
-        // editCategoryModal.querySelector(
-        //   ".form__input[.form__input[name='id']]"
-        // ).value = id.trim();
+        editCategoryModal.querySelector(".editCategoryId").value =
+          previewId.trim();
 
         editCategoryModal.querySelector(
           ".form__input[placeholder='Nazwa kategorii']"
@@ -439,7 +460,8 @@ document.querySelectorAll(".form__edit-document").forEach((button) => {
     } else if (previewModal.classList.contains("modal--previewNoteModal")) {
       // Pobierz dane z modala podglądu notatki
 
-      // const id = previewModal.querySelector("previewNoteId").textContent;
+      const id = previewModal.querySelector(".previewNoteId").value;
+      console.log(id);
 
       const title =
         previewModal.querySelector(".form__title--note").textContent;
@@ -452,8 +474,7 @@ document.querySelectorAll(".form__edit-document").forEach((button) => {
       if (editNoteModal) {
         // Wypełnij pola formularza w modalach edycji
 
-        // editNoteModal.querySelector(".form__input[name='id']").value =
-        //   id.trim();
+        editNoteModal.querySelector(".editNoteId").value = id.trim();
 
         editNoteModal.querySelector(
           ".form__input[placeholder='Tytuł notatki']"

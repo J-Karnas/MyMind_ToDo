@@ -58,7 +58,9 @@
                     <p class="viewCategories__category-title">
                         <?php echo $category['name']; ?>
                     </p>
+                    <input type="hidden" class="previewCategoryId" value="<?php echo $category['id']; ?>">
                 </div>
+                <input type="hidden" class="previewCategoryId">
             <?php endforeach; ?>
         <?php endif; ?>
 

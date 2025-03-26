@@ -258,4 +258,26 @@ class ViewTasksModel extends AbstractModel
             return false;
         }
     }
+
+    public function editTask(array $data): bool
+    {
+
+        $this->query('UPDATE tasks SET title = :title, description = :description, category_id = :category_id, priority= :priority, due_date= :due_date, updated_at = NOW(), reminder= :reminder, reminder_interval= :reminder_interval WHERE id = :id');
+
+        $this->bind(':id', $data['id']);
+        $this->bind(':title', $data['titleTask']);
+        $this->bind(':description', $data['descriptionTask']);
+        $this->bind(':category_id', 6);
+        $this->bind(':priority', $data['priority']);
+        $this->bind(':due_date', $data['date']);
+
+        $this->bind(':reminder', $data['checkboxReminderEdit']);
+        $this->bind(':reminder_interval', $data['notificationEdit']);
+
+        if ($this->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

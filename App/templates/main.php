@@ -96,8 +96,8 @@
             <?php if (isset($elements['tasks'])): ?>
                 <?php foreach ($elements['tasks'] as $tasks): ?>
 
-
                     <div class="task frame tasks__task">
+                        <input type="hidden" class="previewTaskId" value="<?php echo $tasks['id']; ?>">
                         <span class="task__category">
                             <?php
                             if (isset($tasks['name'])) {

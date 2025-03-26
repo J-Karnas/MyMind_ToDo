@@ -117,7 +117,7 @@ li {
 .task {
   position: relative;
   padding: 10px 10px 10px 15px;
-  width: 300px;
+  width: 295px;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -612,7 +612,7 @@ li {
   height: 60px;
   padding: 0 20px;
   background-color: #ffffff;
-  z-index: 111;
+  z-index: 11111111;
 }
 @media only screen and (max-width: 600px) {
   .header-login {

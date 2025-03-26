@@ -58,4 +58,37 @@ class ViewCategoriesController extends AbstractController
             $this->forwarding("/viewCategories");
         }
     }
+
+    public function editCategory(): Void
+    {
+        $viewCategories = new ViewCategoriesModel();
+
+        $data = [
+            'titleCategory' => trim($_POST['categoryEdit']),
+            'id' => trim($_POST['id']),
+        ];
+
+        if (empty($data['titleCategory'])) {
+            $_SESSION["error"] = "Brak potrzebnych danych";
+            $this->forwarding("/viewCategories");
+        }
+
+        if (!preg_match('/^[a-zA-Z0-9ĄĆĘŁŃÓŚŹŻąćęłńóśźż ]+$/u', $data['titleCategory'])) {
+            $_SESSION["error"] = "Zakazane znaki w nazwie kategorii";
+            $this->forwarding("/viewCategories");
+        }
+
+        if (strlen($data['titleCategory']) > 50) {
+            $_SESSION["error"] = "Zbyt długa nazwa kategorii";
+            $this->forwarding("/viewCategories");
+        }
+
+        if ($viewCategories->editCategory($data)) {
+            $_SESSION["error"] = "Nazwa kategorii została zmieniona";
+            $this->forwarding("/viewCategories");
+        } else {
+            $_SESSION["error"] = "Nazwa kategorii nie została zmieniona";
+            $this->forwarding("/viewCategories");
+        }
+    }
 }
