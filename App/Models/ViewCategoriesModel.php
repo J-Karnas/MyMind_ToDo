@@ -25,11 +25,11 @@ class ViewCategoriesModel extends AbstractModel
 
     public function editCategory(array $data): bool
     {
-
-        $this->query('UPDATE categories SET name = :title WHERE id = :id');
+        $this->query('UPDATE categories SET name = :title WHERE id = :id AND user_id = :userId');
 
         $this->bind(':id', $data['id']);
         $this->bind(':title', $data['titleCategory']);
+        $this->bind(':userId', $data['userId']);
 
         if ($this->execute()) {
             return true;

@@ -88,6 +88,8 @@ class NotesController extends AbstractController
             $this->forwarding("/notes");
         }
 
+        $data['userId'] = $_SESSION['userId'];
+
         if ($viewNotes->editNote($data)) {
             $_SESSION["error"] = "Notatka została zmieniona";
             $this->forwarding("/notes");

@@ -238,6 +238,8 @@ class ViewTasksController extends AbstractController
             $data['date'] = NULL;
         }
 
+        $data['userId'] = $_SESSION['userId'];
+
         if ($viewTasks->editTask($data)) {
             $_SESSION["error"] = "Zadanie zostało zmienione";
             $this->forwarding("/viewTasks");

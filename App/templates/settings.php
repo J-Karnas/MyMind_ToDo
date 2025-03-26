@@ -76,39 +76,34 @@
 
 
     <div class="settings">
-        <h2 class="settings__title">Cześć Jakub_kk, co chciałbyś zrobić?</h2>
-
+        <h2 class="settings__title">Cześć <?php echo $elements['username']; ?>, co chciałbyś zrobić?</h2>
         <div class="settings__container">
 
-            <form action="" class="settings__form settings__form--about-me frame">
+            <form method="post" action="/settings/nameEdit" class="settings__form settings__form--about-me frame">
                 <p class="settings__subtitle">O mnie</p>
-                <input type="text" class="settings__input input" placeholder="Nazwa użytkownika">
+                <input type="text" class="settings__input input" placeholder="Nazwa użytkownika" name="nameEdit">
                 <button class="settings__btn button">Zastosuj</button>
-                <button class="settings__btn button">Anuluj</button>
             </form>
 
-            <form action="" class="settings__form frame">
+            <form method="post" action="/settings/pwdEdit" class="settings__form frame">
                 <p class="settings__subtitle">Zmień hasło</p>
-                <input type="text" class="settings__input input" placeholder="Nowe hasło">
-                <input type="text" class="settings__input input" placeholder="Powtórz hasło">
+                <input type="password" class="settings__input input" placeholder="Nowe hasło" name="passwordEdit">
+                <input type="password" class="settings__input input" placeholder="Powtórz hasło" name="repeatPasswordEdit">
                 <button class="settings__btn button">Zastosuj</button>
-                <button class="settings__btn button">Anuluj</button>
             </form>
 
-            <form action="" class="settings__form frame">
+            <form method="post" action="/settings/delAllData" class="settings__form frame">
                 <p class="settings__subtitle">Usuń wszystkie dane</p>
-                <input type="text" class="settings__input input" placeholder="Hasło">
-                <input type="text" class="settings__input input" placeholder="Powtórz hasło">
+                <input type="password" class="settings__input input" placeholder="Hasło" name="password">
+                <input type="password" class="settings__input input" placeholder="Powtórz hasło" name="repeatPassword">
                 <button class="settings__btn button">Zastosuj</button>
-                <button class="settings__btn button">Anuluj</button>
             </form>
 
-            <form action="" class="settings__form frame">
+            <form method="post" action="/settings/delAccount" class="settings__form frame">
                 <p class="settings__subtitle">Usuń konto</p>
-                <input type="text" class="settings__input input" placeholder="Hasło">
-                <input type="text" class="settings__input input" placeholder="Powtórz hasło">
+                <input type="password" class="settings__input input" placeholder="Hasło" name="password">
+                <input type="password" class="settings__input input" placeholder="Powtórz hasło" name="repeatPassword" >
                 <button class="settings__btn button">Zastosuj</button>
-                <button class="settings__btn button">Anuluj</button>
             </form>
 
             <form action="" class="settings__form settings__form--btn frame">

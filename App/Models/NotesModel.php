@@ -40,11 +40,12 @@ class NotesModel extends AbstractModel
 
     public function editNote(array $data): bool
     {
-        $this->query('UPDATE notes SET title = :title, description = :description WHERE id = :id');
+        $this->query('UPDATE notes SET title = :title, description = :description WHERE id = :id AND user_id = :userId');
 
         $this->bind(':id', $data['id']);
         $this->bind(':title', $data['title']);
         $this->bind(':description', $data['description']);
+        $this->bind(':userId', $data['userId']);
 
         if ($this->execute()) {
             return true;

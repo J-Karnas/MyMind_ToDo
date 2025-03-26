@@ -32,6 +32,10 @@ $router->get("/main", "MainController@mainRender");
 
 //settings
 $router->get("/settings", "SettingsController@settingsRender");
+$router->post("/settings/nameEdit", "SettingsController@editUser");
+$router->post("/settings/pwdEdit", "SettingsController@editPWD");
+$router->post("/settings/delAllData", "SettingsController@delAllData");
+$router->post("/settings/delAccount", "SettingsController@delAccount");
 
 //viewTasks
 $router->get("/viewTasks", "ViewTasksController@viewTasksRender");
@@ -42,7 +46,6 @@ $router->post("/editTask", "ViewTasksController@editTask");
 $router->get("/viewCategories", "ViewCategoriesController@viewCategoriesRender");
 $router->post("/addCategories", "ViewCategoriesController@postCategory");
 $router->post("/editCategory", "ViewCategoriesController@editCategory");
-
 //today
 $router->get("/today", "todayController@todayRender");
 

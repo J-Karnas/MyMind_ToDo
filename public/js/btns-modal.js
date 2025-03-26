@@ -418,17 +418,19 @@ document.querySelectorAll(".form__edit-document").forEach((button) => {
 
         const date = endDate.replace(/^Koniec:\s*/i, "").trim();
 
-        function convertToISODate(dateString) {
-          const [day, month, year] = dateString.split("-");
-          const date = new Date(`${year}-${month}-${day}`);
+        if (date === "Brak daty") {
+          editTaskModal.querySelector(".form__reminders-date").value = date;
+          openModal(editTaskModal);
+        } else {
+          editTaskModal.querySelector(".form__reminders-date").value = ((
+            dateString
+          ) =>
+            new Date(dateString.split("-").reverse().join("-"))
+              .toISOString()
+              .split("T")[0])(date);
 
-          return date.toISOString().split("T")[0];
+          openModal(editTaskModal);
         }
-
-        editTaskModal.querySelector(".form__reminders-date").value =
-          convertToISODate(date);
-
-        openModal(editTaskModal);
       }
     } else if (previewModal.classList.contains("modal--previewCategoryModal")) {
       // Pobierz dane z modala podglądu kategorii

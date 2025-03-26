@@ -83,6 +83,8 @@ class ViewCategoriesController extends AbstractController
             $this->forwarding("/viewCategories");
         }
 
+        $data['userId'] = $_SESSION['userId'];
+
         if ($viewCategories->editCategory($data)) {
             $_SESSION["error"] = "Nazwa kategorii została zmieniona";
             $this->forwarding("/viewCategories");

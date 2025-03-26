@@ -262,12 +262,13 @@ class ViewTasksModel extends AbstractModel
     public function editTask(array $data): bool
     {
 
-        $this->query('UPDATE tasks SET title = :title, description = :description, category_id = :category_id, priority= :priority, due_date= :due_date, updated_at = NOW(), reminder= :reminder, reminder_interval= :reminder_interval WHERE id = :id');
+        $this->query('UPDATE tasks SET title = :title, description = :description, category_id = :category_id, priority= :priority, due_date= :due_date, updated_at = NOW(), reminder= :reminder, reminder_interval= :reminder_interval WHERE id = :id AND user_id = :userId ');
 
         $this->bind(':id', $data['id']);
+        $this->bind(':userId', $data['userId']);
         $this->bind(':title', $data['titleTask']);
         $this->bind(':description', $data['descriptionTask']);
-        $this->bind(':category_id', 6);
+        $this->bind(':category_id', $data['category']);
         $this->bind(':priority', $data['priority']);
         $this->bind(':due_date', $data['date']);
 

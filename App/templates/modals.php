@@ -77,7 +77,7 @@
 
     <form class="form frame" method="post" action="/editTask">
 
-        <input type="hidden" name="id" class="editTaskId" value="">
+        <input type="hidden" name="id" class="editTaskId">
 
         <input type="text" class="form__input input--second" name="titleTaskEdit" placeholder="Tytuł zadania">
 
@@ -163,7 +163,7 @@
         <p class="form__title form__title--preview form__title--priority">Priorytet: </p>
         <p class="form__title form__title--preview form__title--end-date">Koniec: </p>
 
-        <input type="hidden" class="previewTaskReminder" name="reminder" value="no">
+        <!-- <input type="hidden" class="previewTaskReminder" name="reminder" value="no"> -->
 
         <div class="form__container-preview-btn">
             <button class="form__preview-btn"><span class="form__check-box"></span></button>
