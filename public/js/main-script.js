@@ -125,6 +125,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextMonthButton = document.querySelector(".calendar__next-month");
 
   let currentDate = new Date();
+  let taskDates = [];
+
+  renderCalendar(currentDate);
+
+  fetchTaskDates();
+
+  // Funkcja do pobierania dat zadań
+  async function fetchTaskDates() {
+    try {
+      const response = await fetch("http://mymind.local/task/date");
+      if (!response.ok) throw new Error("Problem z pobraniem danych");
+      const data = await response.json();
+
+      taskDates = data.map((item) => item.date);
+
+      renderCalendar(currentDate);
+    } catch (error) {
+      console.error("Błąd:", error);
+    }
+  }
 
   function renderCalendar(date) {
     const year = date.getFullYear();
@@ -133,9 +153,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const lastDayOfMonth = new Date(year, month + 1, 0);
     const daysInMonth = lastDayOfMonth.getDate();
     const firstDayOfWeek =
-      firstDayOfMonth.getDay() === 0 ? 7 : firstDayOfMonth.getDay(); // Ustawienie niedzieli jako 7
+      firstDayOfMonth.getDay() === 0 ? 7 : firstDayOfMonth.getDay();
     const daysFromPrevMonth = firstDayOfWeek - 1;
-    const daysFromNextMonth = 42 - (daysInMonth + daysFromPrevMonth); // 6 wierszy * 7 dni = 42 komórki
+    const daysFromNextMonth = 42 - (daysInMonth + daysFromPrevMonth);
 
     currentMonthElement.textContent = `${date.toLocaleString("default", {
       month: "long",
@@ -153,7 +173,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Dni z bieżącego miesiąca
     for (let i = 1; i <= daysInMonth; i++) {
-      calendarDays.innerHTML += `<div class="calendar__day">${i}</div>`;
+      const day = i < 10 ? `0${i}` : i;
+      const monthFormatted = month + 1 < 10 ? `0${month + 1}` : month + 1;
+      const dateStr = `${year}-${monthFormatted}-${day}`;
+
+      // Sprawdź czy data jest w tablicy taskDates
+      const hasTask = taskDates.includes(dateStr);
+
+      // Dodaj klasę calendar__day--has-task jeśli jest zadanie w tym dniu
+      const taskClass = hasTask ? " calendar__day--has-task" : "";
+
+      calendarDays.innerHTML += `<div class="calendar__day${taskClass}" data-date="${dateStr}">${i}</div>`;
     }
 
     // Dni z następnego miesiąca
@@ -171,8 +201,6 @@ document.addEventListener("DOMContentLoaded", function () {
     currentDate.setMonth(currentDate.getMonth() + 1);
     renderCalendar(currentDate);
   });
-
-  renderCalendar(currentDate);
 });
 
 // Obsługa nawigacji

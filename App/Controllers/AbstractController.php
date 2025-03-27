@@ -32,4 +32,16 @@ abstract class AbstractController
         $mailer = new Mailer();
         return $mailer->send($to, 'Welcome!', 'welcome', $data);
     }
+
+    protected function respond($data, $status = 200)
+    {
+        http_response_code($status);
+        echo json_encode($data);
+        exit;
+    }
+
+    protected function respondWithError($message, $status = 400)
+    {
+        $this->respond(['error' => $message], $status);
+    }
 }

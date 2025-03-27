@@ -50,6 +50,8 @@ $router->post("/addNote", "notesController@postNote");
 $router->post("/editNote", "notesController@editNote");
 $router->post("/delNote", "notesController@delNote");
 
+$router->get("/task/date", "ViewTasksController@dateTask");
+
 $router->get("/logout", "LoginController@logout");
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

@@ -296,4 +296,23 @@ class ViewTasksController extends AbstractController
             $this->forwarding("/viewTasks");
         }
     }
+
+    public function dateTask()
+    {
+        if (isset($_SESSION['status']) && $_SESSION['status'] = "login") {
+            $viewTasks = new ViewTasksModel();
+
+            $data['userId'] = $_SESSION['userId'];
+
+            try {
+                header('Content-Type: application/json');
+                $respond = $viewTasks->dateTask($data);
+                $this->respond($respond);
+            } catch (\Throwable $th) {
+                $this->respondWithError(['error' => 'Invalid ' . $th]);
+            }
+        } else {
+            $this->forwarding("/login");
+        }
+    }
 }

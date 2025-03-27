@@ -79,6 +79,10 @@
     cursor: pointer;
     transition: 0.3s;
 
+    &--has-task {
+      background-color: $main-bg-color;
+    }
+
     &:hover {
       color: $alt-text-color;
       background-color: $main-color;

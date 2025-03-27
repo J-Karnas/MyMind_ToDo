@@ -245,6 +245,9 @@ li {
   cursor: pointer;
   transition: 0.3s;
 }
+.calendar__day--has-task {
+  background-color: #cccccc;
+}
 .calendar__day:hover {
   color: #ffffff;
   background-color: #0c0b0b;

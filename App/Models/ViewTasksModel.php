@@ -310,4 +310,19 @@ class ViewTasksModel extends AbstractModel
             return false;
         }
     }
+
+    public function dateTask(array $data): bool | array
+    {
+        $this->query('SELECT DATE(due_date) AS date FROM tasks WHERE status = "progress" AND due_date IS NOT NULL AND user_id = :userId;');
+
+        $this->bind(':userId', $data['userId']);
+
+        $row = $this->allArray();
+
+        if ($this->Count() > 0) {
+            return $row;
+        } else {
+            return false;
+        }
+    }
 }
