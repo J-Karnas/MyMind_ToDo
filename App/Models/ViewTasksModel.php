@@ -281,4 +281,33 @@ class ViewTasksModel extends AbstractModel
             return false;
         }
     }
+
+    public function acceptTask(array $data): bool
+    {
+        $this->query('UPDATE tasks SET status = :status WHERE id = :id AND user_id = :userId ');
+
+        $this->bind(':id', $data['id']);
+        $this->bind(':userId', $data['userId']);
+        $this->bind(':status', "done");
+
+        if ($this->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function delTask(array $data): bool
+    {
+        $this->query('DELETE FROM tasks WHERE id = :id AND user_id = :userId ');
+
+        $this->bind(':id', $data['id']);
+        $this->bind(':userId', $data['userId']);
+
+        if ($this->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

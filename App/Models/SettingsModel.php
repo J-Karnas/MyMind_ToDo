@@ -36,7 +36,7 @@ class SettingsModel extends AbstractModel
             return false;
         }
     }
-    
+
     public function editPWD(array $data): bool
     {
         $this->query('UPDATE users SET password_hash = :password WHERE id = :userId');
@@ -66,21 +66,18 @@ class SettingsModel extends AbstractModel
 
     public function delAccount(array $data): bool
     {
-        if($this->delAllData($data)){
+        if ($this->delAllData($data)) {
             $this->query('DELETE FROM users WHERE id = :userId');
-    
+
             $this->bind(':userId', $data['userId']);
-    
+
             if ($this->execute()) {
                 return true;
             } else {
                 return false;
             }
-        }else{
+        } else {
             return false;
         }
-
     }
-
-
 }

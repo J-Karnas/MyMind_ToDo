@@ -53,4 +53,18 @@ class NotesModel extends AbstractModel
             return false;
         }
     }
+
+    public function delNote(array $data): bool
+    {
+        $this->query('DELETE FROM notes WHERE id = :id AND user_id = :userId');
+
+        $this->bind(':id', $data['id']);
+        $this->bind(':userId', $data['userId']);
+
+        if ($this->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

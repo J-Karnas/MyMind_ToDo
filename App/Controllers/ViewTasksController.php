@@ -248,4 +248,52 @@ class ViewTasksController extends AbstractController
             $this->forwarding("/viewTasks");
         }
     }
+
+    public function acceptTask(): Void
+    {
+        $viewTasks = new ViewTasksModel();
+
+        $data = [
+            'id' => trim($_POST['id'])
+        ];
+
+        if (empty($data['id'])) {
+            $_SESSION["error"] = "Brak id";
+            $this->forwarding("/viewTasks");
+        }
+
+        $data['userId'] = $_SESSION['userId'];
+
+        if ($viewTasks->acceptTask($data)) {
+            $_SESSION["error"] = "Zadanie zostało zakończone";
+            $this->forwarding("/viewTasks");
+        } else {
+            $_SESSION["error"] = "Zadanie nie zostało zakończone";
+            $this->forwarding("/viewTasks");
+        }
+    }
+
+    public function delTask(): Void
+    {
+        $viewTasks = new ViewTasksModel();
+
+        $data = [
+            'id' => trim($_POST['id'])
+        ];
+
+        if (empty($data['id'])) {
+            $_SESSION["error"] = "Brak id";
+            $this->forwarding("/viewTasks");
+        }
+
+        $data['userId'] = $_SESSION['userId'];
+
+        if ($viewTasks->delTask($data)) {
+            $_SESSION["error"] = "Zadanie zostało usunięte";
+            $this->forwarding("/viewTasks");
+        } else {
+            $_SESSION["error"] = "Zadanie nie zostało usunięte";
+            $this->forwarding("/viewTasks");
+        }
+    }
 }

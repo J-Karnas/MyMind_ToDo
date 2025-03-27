@@ -8,6 +8,11 @@
   padding: 30px;
   background-color: $bg-color;
 
+  &--confirm {
+    width: 400px;
+    padding: 30px 20px;
+  }
+
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -24,6 +29,11 @@
   @media only screen and (max-width: $breakpoint-mobile) {
     width: 355px;
     padding: 20px;
+
+    &--confirm {
+      width: 340px;
+      padding: 25px 15px;
+    }
   }
 
   &__input {
@@ -100,9 +110,17 @@
 
     &--category,
     &--priority,
-    &--preview {
+    &--preview,
+    &--check,
+    &--delete {
       margin: 5px 0;
       border-bottom: none;
+    }
+
+    &--check,
+    &--delete {
+      justify-content: center;
+      text-align: center;
     }
 
     &--category,
@@ -158,6 +176,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
+    &--confirm {
+      padding-top: 15px;
+    }
   }
 
   &__notification-btn {

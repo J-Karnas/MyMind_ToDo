@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apliakcja To Do do planowania i organizacji zadań">
+    <meta name="keywords" content="To Do, tasks, notes, activities, productivity, task planning">
     <title>MyMind - Nadchodzące</title>
     <link rel="stylesheet" href="../../public/css/style.css">
     <link rel="icon" href="/public/image/img/MyMind.png" type="image/png">
@@ -18,10 +20,10 @@
         <h1 class="header-login__title">MyMind</h1>
         <div class="header-login__buttons">
             <a class="header-login__link header-login__link--account" href="/settings">
-                <img class="header-login__icon" src="/public/image/svg-icons/account.svg">
+                <img class="header-login__icon" src="/public/image/svg-icons/account.svg" alt="ikona użytkownika">
             </a>
             <a class="header-login__link header-login__link--burger" href="/">
-                <img class="header-login__icon" src="/public/image/svg-icons/menu-burger.svg">
+                <img class="header-login__icon" src="/public/image/svg-icons/menu-burger.svg" alt="ikona listy rozwijanej">
             </a>
         </div>
     </header>
@@ -120,7 +122,7 @@
 
 
                     <div class="task frame tasks__task">
-                    <input type="hidden" class="previewTaskId" value="<?php echo $tasks['id']; ?>">
+                        <input type="hidden" class="previewTaskId" value="<?php echo $tasks['id']; ?>">
                         <span class="task__category">
                             <?php
                             if (isset($tasks['name'])) {

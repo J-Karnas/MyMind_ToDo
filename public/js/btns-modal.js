@@ -12,6 +12,11 @@ const addNoteModal = document.querySelector(".modal--addNoteModal");
 const editNoteModal = document.querySelector(".modal--editNoteModal");
 const previewNoteModal = document.querySelector(".modal--previewNoteModal");
 
+const checkModal = document.querySelector(".modal--task-check");
+const deleteTaskModal = document.querySelector(".modal--delete-task");
+const deleteCategoryModal = document.querySelector(".modal--delete-category");
+const deleteNoteModal = document.querySelector(".modal--delete-note");
+
 // Obsługa przycisków "Dodaj zadanie", "Dodaj kategorię" i "Dodaj notatkę"
 const addTaskButton = document.querySelector(".nav__link--add-task");
 const addCategoryButton = document.querySelector(".nav__link--add-category");
@@ -487,6 +492,95 @@ document.querySelectorAll(".form__edit-document").forEach((button) => {
         // Otwórz modal edycji notatki
         openModal(editNoteModal);
       }
+    }
+  });
+});
+
+//
+
+//
+
+//
+
+document.querySelectorAll(".form__delete-forever").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // Znajdź najbliższy modal podglądu
+    const previewModal = button.closest(".modal");
+
+    closeModal(previewModal);
+
+    // Określ typ modala (task, category, note) na podstawie klasy
+    if (previewModal.classList.contains("modal--previewTaskModal")) {
+      // Pobierz dane z modala podglądu zadania (id)
+      const previewId = previewModal.querySelector(".previewTaskId").value;
+
+      //
+
+      // Otwórz modal usuwania zadania
+      const deleteTaskModal = document.querySelector(".modal--delete-task");
+      if (deleteTaskModal) {
+        deleteTaskModal.querySelector(".taskDeleteId").value = previewId.trim();
+
+        openModal(deleteTaskModal);
+      }
+    } else if (previewModal.classList.contains("modal--previewCategoryModal")) {
+      // Pobierz dane z modala podglądu kategorii
+
+      const previewId = previewModal.querySelector(".previewCategoryId").value;
+
+      // Otwórz modal edycji kategorii
+
+      const deleteCategoryModal = document.querySelector(
+        ".modal--delete-category"
+      );
+      if (deleteCategoryModal) {
+        // Wypełnij pole formularza w modalu kategorii
+
+        deleteCategoryModal.querySelector(".categoryDeleteId").value =
+          previewId.trim();
+
+        // Otwórz modal edycji kategorii
+        openModal(deleteCategoryModal);
+      }
+    } else if (previewModal.classList.contains("modal--previewNoteModal")) {
+      // Pobierz dane z modala podglądu notatki
+
+      const previewId = previewModal.querySelector(".previewNoteId").value;
+
+      // Otwórz modal usuwania notatki
+      const deleteNoteModal = document.querySelector(".modal--delete-note");
+      if (deleteNoteModal) {
+        // Wypełnij pola formularza w modalach edycji
+
+        deleteNoteModal.querySelector(".noteDeleteId").value = previewId.trim();
+
+        // Otwórz modal edycji notatki
+        openModal(deleteNoteModal);
+      }
+    }
+  });
+});
+
+document.querySelectorAll(".form__check-box").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // Znajdź najbliższy modal podglądu
+    const previewModal = button.closest(".modal");
+
+    closeModal(previewModal);
+
+    // Pobierz dane z modala podglądu zadania (id)
+    const previewId = previewModal.querySelector(".previewTaskId").value;
+
+    // Otwórz modal kończenia zadania
+    const checkModal = document.querySelector(".modal--task-check");
+    if (checkModal) {
+      checkModal.querySelector(".taskCheckId").value = previewId.trim();
+
+      openModal(checkModal);
     }
   });
 });

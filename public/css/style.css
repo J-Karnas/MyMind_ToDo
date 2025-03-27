@@ -321,7 +321,7 @@ li {
 
 .modal {
   position: fixed;
-  z-index: 111111;
+  z-index: 111111111111;
   top: 0;
   left: 0;
   right: 0;
@@ -344,6 +344,10 @@ li {
   padding: 30px;
   background-color: #ffffff;
 }
+.form--confirm {
+  width: 400px;
+  padding: 30px 20px;
+}
 .form ::-webkit-scrollbar {
   width: 8px;
 }
@@ -360,6 +364,10 @@ li {
   .form {
     width: 355px;
     padding: 20px;
+  }
+  .form--confirm {
+    width: 340px;
+    padding: 25px 15px;
   }
 }
 .form__input {
@@ -422,9 +430,13 @@ li {
   border-bottom: 1px solid #0c0b0b;
   justify-content: space-between;
 }
-.form__title--category, .form__title--priority, .form__title--preview {
+.form__title--category, .form__title--priority, .form__title--preview, .form__title--check, .form__title--delete {
   margin: 5px 0;
   border-bottom: none;
+}
+.form__title--check, .form__title--delete {
+  justify-content: center;
+  text-align: center;
 }
 @media only screen and (max-width: 600px) {
   .form__title--category, .form__title--priority {
@@ -471,6 +483,9 @@ li {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.form__container-btn--confirm {
+  padding-top: 15px;
 }
 .form__notification-btn {
   font-size: 0.9rem;

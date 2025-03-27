@@ -12,6 +12,7 @@ class View
         require_once("App/templates/$page.php");
     }
 
+    // anty XSS
     private function escape(array $params): array
     {
         $clearParams = [];

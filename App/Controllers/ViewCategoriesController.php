@@ -93,4 +93,28 @@ class ViewCategoriesController extends AbstractController
             $this->forwarding("/viewCategories");
         }
     }
+
+    public function delCategories(): Void
+    {
+        $viewCategories = new ViewCategoriesModel();
+
+        $data = [
+            'id' => trim($_POST['id'])
+        ];
+
+        if (empty($data['id'])) {
+            $_SESSION["error"] = "Brak id";
+            $this->forwarding("/viewCategories");
+        }
+
+        $data['userId'] = $_SESSION['userId'];
+
+        if ($viewCategories->delCategories($data)) {
+            $_SESSION["error"] = "Kategoria została usunięta";
+            $this->forwarding("/viewCategories");
+        } else {
+            $_SESSION["error"] = "Kategoria jest obecnie używana";
+            $this->forwarding("/viewCategories");
+        }
+    }
 }

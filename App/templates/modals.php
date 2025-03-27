@@ -283,3 +283,52 @@
     </form>
 
 </div>
+
+
+
+<div class="modal modal--task-check modal--hide">
+    <form class="form form--confirm frame" method="post" action="/checkTask">
+        <p class="form__title form__title--check">Czy na pewno zakończyłeś zadanie?</p>
+        <input type="hidden" name="id" class="taskCheckId" value="">
+        <div class="form__container-btn form__container-btn--confirm">
+            <button class="form__btn form__btn--confirm button">Potwierdź</button>
+            <a href="" class="form__btn form__btn--cancel button">Anuluj</a>
+        </div>
+    </form>
+</div>
+
+<div class="modal modal--delete-task modal--hide">
+    <form class="form form--confirm frame" method="post" action="/delTask">
+        <p class="form__title form__title--delete">Czy na pewno chcesz usunąć zadanie?</p>
+        <input type="hidden" name="id" class="taskDeleteId" value="">
+
+        <div class="form__container-btn form__container-btn--confirm">
+            <button class="form__btn form__btn--confirm button">Potwierdź</button>
+            <a href="" class="form__btn form__btn--cancel button">Anuluj</a>
+        </div>
+    </form>
+</div>
+
+<div class="modal modal--delete-category modal--hide">
+    <form class="form form--confirm frame" method="post" action="/delCategory">
+        <p class="form__title form__title--delete">Czy na pewno chcesz usunąć kategorię?</p>
+        <input type="hidden" name="id" class="categoryDeleteId" value="">
+
+        <div class="form__container-btn form__container-btn--confirm">
+            <button class="form__btn form__btn--confirm button">Potwierdź</button>
+            <a href="" class="form__btn form__btn--cancel button">Anuluj</a>
+        </div>
+    </form>
+</div>
+
+<div class="modal modal--delete-note modal--hide">
+    <form class="form form--confirm frame" method="post" action="/delNote">
+        <p class="form__title form__title--delete">Czy na pewno chcesz usunąć notatkę?</p>
+        <input type="hidden" name="id" class="noteDeleteId" value="">
+
+        <div class="form__container-btn form__container-btn--confirm">
+            <button class="form__btn form__btn--confirm button">Potwierdź</button>
+            <a href="" class="form__btn form__btn--cancel button">Anuluj</a>
+        </div>
+    </form>
+</div>

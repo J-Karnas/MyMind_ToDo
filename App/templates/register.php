@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apliakcja To Do do planowania i organizacji zadań">
+    <meta name="keywords" content="To Do, tasks, notes, activities, productivity, task planning">
     <title>MyMind - Rejestracja</title>
     <link rel="stylesheet" href="../../public/css/style.css">
     <link rel="icon" href="/public/image/img/MyMind.png" type="image/png">

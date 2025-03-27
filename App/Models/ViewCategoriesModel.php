@@ -52,4 +52,33 @@ class ViewCategoriesModel extends AbstractModel
             return false;
         }
     }
+
+    public function delCategories(array $data)
+    {
+        $this->query('SELECT * FROM tasks WHERE category_id = :id');
+
+        $this->bind(':id', $data['id']);
+
+        $row = $this->allArray();
+
+        if ($this->Count() == 0) {
+            $this->viewCategoriesUse($data);
+        } else {
+            return false;
+        }
+    }
+
+    public function viewCategoriesUse(array $data): bool
+    {
+        $this->query('DELETE FROM categories WHERE id = :id AND user_id = :userId ');
+
+        $this->bind(':id', $data['id']);
+        $this->bind(':userId', $data['userId']);
+
+        if ($this->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

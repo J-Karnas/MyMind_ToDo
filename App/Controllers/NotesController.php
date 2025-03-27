@@ -63,38 +63,26 @@ class NotesController extends AbstractController
         }
     }
 
-    public function editNote(): Void
+    public function delNote(): Void
     {
         $viewNotes = new NotesModel();
 
         $data = [
-            'id' => trim($_POST['id']),
-            'title' => trim($_POST['titleNoteEdit']),
-            'description' => trim($_POST['descriptionNoteEdit']),
+            'id' => trim($_POST['id'])
         ];
 
-        if (empty($data['title'])) {
-            $_SESSION["error"] = "Brak tytułu notatki";
-            $this->forwarding("/notes");
-        }
-
-        if (!preg_match('/^[a-zA-Z0-9ĄĆĘŁŃÓŚŹŻąćęłńóśźż ]+$/u', $data['title'])) {
-            $_SESSION["error"] = "Zakazane znaki w tytule notatki";
-            $this->forwarding("/notes");
-        }
-
-        if (strlen($data['title']) > 50) {
-            $_SESSION["error"] = "Zbyt długi tytuł notatki";
+        if (empty($data['id'])) {
+            $_SESSION["error"] = "Brak id";
             $this->forwarding("/notes");
         }
 
         $data['userId'] = $_SESSION['userId'];
 
-        if ($viewNotes->editNote($data)) {
-            $_SESSION["error"] = "Notatka została zmieniona";
+        if ($viewNotes->delNote($data)) {
+            $_SESSION["error"] = "Notatka została usunięta";
             $this->forwarding("/notes");
         } else {
-            $_SESSION["error"] = "Notatka nie została zmieniona";
+            $_SESSION["error"] = "Notatka nie zostało usunięta";
             $this->forwarding("/notes");
         }
     }
