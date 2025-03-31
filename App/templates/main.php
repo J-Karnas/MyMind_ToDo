@@ -36,29 +36,24 @@
             <div class="stats__container">
                 <div class="stats__frame frame">
                     <p class="stats__subtitle">Liczba zadań:</p>
-                    <p class="stats__description">Dzisiaj: 4</p>
-                    <p class="stats__description">Nadchodzące: 14</p>
-                    <p class="stats__description">Zakończone: 12</p>
-                    <p class="stats__description">Usunięte: 2</p>
+                    <p class="stats__description">Dzisiaj: <?php echo $elements['stats1']['statistic_count'] ?></p>
+                    <p class="stats__description">Nadchodzące: <?php echo $elements['stats2']['statistic_count'] ?></p>
+                    <p class="stats__description">Zakończone: <?php echo $elements['stats3']['statistic_count'] ?></p>
                 </div>
                 <div class="stats__frame frame">
                     <p class="stats__subtitle">Dzisiaj:</p>
-                    <p class="stats__description">Zadania ukończone: 3</p>
-                    <p class="stats__description">Zadania nieukończone: 1</p>
-                    <p class="stats__description">Zadania usunięte: 2</p>
-
+                    <p class="stats__description">Zadania ukończone: <?php echo $elements['stats4']['statistic_count'] ?></p>
+                    <p class="stats__description">Zadania nieukończone: <?php echo $elements['stats5']['statistic_count'] ?></p>
                 </div>
                 <div class="stats__frame frame">
                     <p class="stats__subtitle">W tym tygodniu:</p>
-                    <p class="stats__description">Zadania ukończone: 3</p>
-                    <p class="stats__description">Zadania nieukończone: 1</p>
-                    <p class="stats__description">Zadania usunięte: 2</p>
+                    <p class="stats__description">Zadania ukończone: <?php echo $elements['stats6']['statistic_count'] ?></p>
+                    <p class="stats__description">Zadania nieukończone: <?php echo $elements['stats7']['statistic_count'] ?></p>
                 </div>
                 <div class="stats__frame frame">
                     <p class="stats__subtitle">W tym miesiącu:</p>
-                    <p class="stats__description">Zadania ukończone: 3</p>
-                    <p class="stats__description">Zadania nieukończone: 1</p>
-                    <p class="stats__description">Zadania usunięte: 2</p>
+                    <p class="stats__description">Zadania ukończone: <?php echo $elements['stats8']['statistic_count'] ?></p>
+                    <p class="stats__description">Zadania nieukończone: <?php echo $elements['stats9']['statistic_count'] ?></p>
                 </div>
             </div>
 
