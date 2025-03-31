@@ -34,7 +34,7 @@ class ViewCategoriesController extends AbstractController
         ];
 
         if (empty($data['titleCategory'])) {
-            $_SESSION["error"] = "Brak potrzebnych danych";
+            $_SESSION["error"] = "Brak wymaganych danych";
             $this->forwarding("/viewCategories");
         }
 
@@ -54,7 +54,7 @@ class ViewCategoriesController extends AbstractController
             $_SESSION["error"] = "Kategoria została dodana";
             $this->forwarding("/viewCategories");
         } else {
-            $_SESSION["error"] = "Zadanie nie zostało dodane";
+            $_SESSION["error"] = "Kategoria nie została dodana";
             $this->forwarding("/viewCategories");
         }
     }
@@ -69,7 +69,7 @@ class ViewCategoriesController extends AbstractController
         ];
 
         if (empty($data['titleCategory'])) {
-            $_SESSION["error"] = "Brak potrzebnych danych";
+            $_SESSION["error"] = "Brak wymaganych danych";
             $this->forwarding("/viewCategories");
         }
 

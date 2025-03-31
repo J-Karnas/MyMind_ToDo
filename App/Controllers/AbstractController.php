@@ -30,7 +30,25 @@ abstract class AbstractController
     protected function sendWelcomeEmail(string $to, array $data)
     {
         $mailer = new Mailer();
-        return $mailer->send($to, 'Welcome!', 'welcome', $data);
+        return $mailer->send($to, 'Witaj!', 'welcome', $data);
+    }
+
+    protected function sendNotificationEmail(string $to, array $data)
+    {
+        $mailer = new Mailer();
+        return $mailer->send($to, 'Powiadomienie!', 'notiEmailTemplate', $data);
+    }
+
+    protected function sendReminderEmail(string $to, array $data)
+    {
+        $mailer = new Mailer();
+        return $mailer->send($to, 'Przypomnienie!', 'remindEmailTemplate', $data);
+    }
+
+    protected function sendWarningEmail(string $to, array $data)
+    {
+        $mailer = new Mailer();
+        return $mailer->send($to, 'Ostrzeżenie!', 'notiEmailTemplate', $data);
     }
 
     protected function respond($data, $status = 200)

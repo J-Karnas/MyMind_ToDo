@@ -34,7 +34,7 @@ class SettingsController extends AbstractController
         ];
 
         if (empty($data['name'])) {
-            $_SESSION["error"] = "Brak nazwy";
+            $_SESSION["error"] = "Brak nazwy użytkownika";
             $this->forwarding("/settings");
         }
 
@@ -49,7 +49,7 @@ class SettingsController extends AbstractController
             $_SESSION["error"] = "Nazwa została zmienione";
             $this->forwarding("/settings");
         } else {
-            $_SESSION["error"] = "Wystąpił problem";
+            $_SESSION["error"] = "Wystąpił problem ze zmianą nazwy";
             $this->forwarding("/settings");
         }
     }
@@ -64,12 +64,12 @@ class SettingsController extends AbstractController
         ];
 
         if (empty($data['password']) || empty($data['repeatPassword'])) {
-            $_SESSION["error"] = "Brak potrzebnych danych";
+            $_SESSION["error"] = "Brak wymaganych danych";
             $this->forwarding("/settings");
         }
 
         if (strlen($data['password']) < 8) {
-            $_SESSION["error"] = "Zbyt krótkie hasło";
+            $_SESSION["error"] = "Hasło wymaga minimum 8 znaków";
             $this->forwarding("/settings");
         } else if ($data['password'] !== $data['repeatPassword']) {
             $_SESSION["error"] = "Hasła nie są takie same";
@@ -98,7 +98,7 @@ class SettingsController extends AbstractController
         ];
 
         if (empty($data['password']) || empty($data['repeatPassword'])) {
-            $_SESSION["error"] = "Brak potrzebnych danych";
+            $_SESSION["error"] = "Brak wymaganych danych";
             $this->forwarding("/settings");
         }
 

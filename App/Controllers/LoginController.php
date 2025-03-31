@@ -30,7 +30,7 @@ class LoginController extends AbstractController
         ];
 
         if (empty($data['email']) || empty($data['password'])) {
-            $_SESSION["error"] = "Brak potrzebnych danych";
+            $_SESSION["error"] = "Uzupełnij wymagane dane";
             $this->forwarding("/login");
         }
 
@@ -57,7 +57,7 @@ class LoginController extends AbstractController
                 $this->forwarding("/login");
             }
         } else {
-            $_SESSION["error"] = "Niepoprawne dane";
+            $_SESSION["error"] = "Niepoprawne dane logowania";
             $this->forwarding("/login");
         }
     }

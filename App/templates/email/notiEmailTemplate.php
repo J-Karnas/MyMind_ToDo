@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Witaj w MyMaind!</title>
+  <title>Powiadomienie o zadaniu</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -34,6 +34,8 @@
 
     a {
       text-decoration: none;
+      color: #0c0b0b;
+      font-size: 16px;
     }
 
     .button {
@@ -59,22 +61,64 @@
       font-size: 12px;
       color: rgba(12, 11, 11, 0.5);
     }
+
+    .table-container {
+      max-width: 500px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #0c0b0b;
+    }
+
+    th {
+      background-color: #ffffff;
+      color: #0c0b0b;
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h2>
-      Witaj
-      <?= htmlspecialchars($name) ?>!
-    </h2>
+    <h2>Powiadomienie o zadaniach do wykonania</h2>
     <p>
-      Dziękujemy za dołączenie do <strong>MyMaind</strong>. Cieszymy się, że
-      jesteś z nami!
+      Cześć,
+      <?= htmlspecialchars($name) ?>!
     </p>
-    <p>Aby aktywować swoje konto, kliknij poniższy przycisk:</p>
-    <a href="<?= htmlspecialchars($activationLink) ?>" class="button">Aktywuj konto</a>
-    <p>Jeśli to nie Ty zakładałeś konto, zignoruj tę wiadomość.</p>
+    <p>
+      To powiadomienie o liczbie zadań do zrealizowania
+      <?= htmlspecialchars($type) ?>:
+      <strong><?= htmlspecialchars($count) ?></strong>.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Tytuł zadania</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($titleTasks as $key) : ?>
+          <tr>
+            <td><?= htmlspecialchars($key['title']) ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+
+    <p>Aby sprawdzić szczegóły i wykonać zadania, przejdź do aplikacji:</p>
+    <a href="<?= htmlspecialchars($link) ?>" class="button">Zobacz zadania</a>
     <p class="footer">
       Pozdrawiamy, <br />
       Zespół MyMaind

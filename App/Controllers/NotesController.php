@@ -82,7 +82,7 @@ class NotesController extends AbstractController
             $_SESSION["error"] = "Notatka została usunięta";
             $this->forwarding("/notes");
         } else {
-            $_SESSION["error"] = "Notatka nie zostało usunięta";
+            $_SESSION["error"] = "Notatka nie została usunięta";
             $this->forwarding("/notes");
         }
     }

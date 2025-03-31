@@ -48,7 +48,7 @@ class ViewTasksController extends AbstractController
             $data['notification'] = trim($_POST['notification']);
 
             if (empty($data['checkboxReminder']) || empty($data['notification'])) {
-                $_SESSION["error"] = "Brak potrzebnych danych";
+                $_SESSION["error"] = "Brak wymaganych danych";
                 $this->forwarding("/viewTasks");
             }
 
@@ -61,9 +61,11 @@ class ViewTasksController extends AbstractController
                     break;
                 case 2:
                     $data['notification'] = "dwa dni";
+                    $data['lastReminder'] = date('Y-m-d');
                     break;
                 case 3:
                     $data['notification'] = "tydzien";
+                    $data['lastReminder'] = date('Y-m-d');
                     break;
                 case 4:
                     $data['notification'] = "dzien przed";
@@ -72,7 +74,7 @@ class ViewTasksController extends AbstractController
                     $data['notification'] = "dzien zakonczenia";
                     break;
                 default:
-                    $_SESSION["error"] = "Brak potrzebnych danych";
+                    $_SESSION["error"] = "Brak wymaganych danych";
                     $this->forwarding("/viewTasks");
                     break;
             }
@@ -83,7 +85,7 @@ class ViewTasksController extends AbstractController
         }
 
         if (empty($data['titleTask']) || empty($data['category']) || empty($data['priority'])) {
-            $_SESSION["error"] = "Brak potrzebnych danych";
+            $_SESSION["error"] = "Brak wymaganych danych";
             $this->forwarding("/viewTasks");
         }
 
@@ -181,7 +183,7 @@ class ViewTasksController extends AbstractController
                     $data['notificationEdit'] = "dzien zakonczenia";
                     break;
                 default:
-                    $_SESSION["error"] = "Brak potrzebnych danych";
+                    $_SESSION["error"] = "Brak wymaganych danych";
                     $this->forwarding("/viewTasks");
                     break;
             }
@@ -192,7 +194,7 @@ class ViewTasksController extends AbstractController
         }
 
         if (empty($data['titleTask']) || empty($data['category']) || empty($data['priority'])) {
-            $_SESSION["error"] = "Brak potrzebnych danych";
+            $_SESSION["error"] = "Brak wymaganych danych";
             $this->forwarding("/viewTasks");
         }
 
