@@ -48,7 +48,7 @@ abstract class AbstractController
     protected function sendWarningEmail(string $to, array $data)
     {
         $mailer = new Mailer();
-        return $mailer->send($to, 'Ostrzeżenie!', 'notiEmailTemplate', $data);
+        return $mailer->send($to, 'Ostrzezenie!', 'warningEmailTemplate', $data);
     }
 
     protected function respond($data, $status = 200)

@@ -23,7 +23,7 @@ class EmailController extends AbstractController
                         'count' => $key['tasks_value'],
                         'name' => $key['username'],
                         'titleTasks' => $returnIdTask,
-                        'link' => "http://mymaind.local/viewTasks"
+                        'link' => "http://mymind.local//viewTasks"
                     ];
 
                     $return = $this->sendNotificationEmail($key['email'], $dataEmail);
@@ -54,7 +54,7 @@ class EmailController extends AbstractController
                         'name' => $key['username'],
                         'count' => $key['tasks_value'],
                         'titleTasks' => $returnIdTask,
-                        'link' => "http://mymaind.local/viewTasks"
+                        'link' => "http://mymind.local//viewTasks"
                     ];
 
                     $return = $this->sendReminderEmail($key['email'], $dataEmail);
@@ -85,7 +85,7 @@ class EmailController extends AbstractController
                         'name' => $key['username'],
                         'count' => $key['tasks_value'],
                         'titleTasks' => $returnIdTask,
-                        'link' => "http://mymaind.local/viewTasks"
+                        'link' => "http://mymind.local//viewTasks"
                     ];
 
                     $return = $this->sendReminderEmail($key['email'], $dataEmail);
@@ -116,7 +116,7 @@ class EmailController extends AbstractController
                         'name' => $key['username'],
                         'count' => $key['tasks_value'],
                         'titleTasks' => $returnIdTask,
-                        'link' => "http://mymaind.local/viewTasks"
+                        'link' => "http://mymind.local//viewTasks"
                     ];
 
                     $return = $this->sendNotificationEmail($key['email'], $dataEmail);
@@ -147,7 +147,7 @@ class EmailController extends AbstractController
                         'name' => $key['username'],
                         'count' => $key['tasks_value'],
                         'titleTasks' => $returnIdTask,
-                        'link' => "http://mymaind.local/viewTasks"
+                        'link' => "http://mymind.local//viewTasks"
                     ];
 
                     $return = $this->sendNotificationEmail($key['email'], $dataEmail);

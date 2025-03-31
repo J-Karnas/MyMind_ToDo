@@ -47,19 +47,42 @@ class LoginController extends AbstractController
         if ($return = $loginModel->findUser($data['email'])) {
             if (password_verify($data['password'], $return['password_hash'])) {
                 if (!$loginModel->updateDateLogin($return)) {
+                    $loginModel->updateLoginError($data['email'], 0);
                     $_SESSION["error"] = "Nie udało sie zaktualizować daty";
                     $this->createUserSession($return);
                 }
+                $loginModel->updateLoginError($data['email'], 0);
                 $this->createUserSession($return);
             } else {
                 $_SESSION["error"] = "Niepoprawne hasło";
-                // TODO - licznik błędnych zalogowań, jeżeli 3 pod rząd to wysłać mail
+                $this->loginError($data['email']);
                 $this->forwarding("/login");
             }
         } else {
             $_SESSION["error"] = "Niepoprawne dane logowania";
             $this->forwarding("/login");
         }
+    }
+
+    private function loginError(string $email)
+    {
+        $loginModel = new LoginModel();
+
+        $result = $loginModel->getLoginError($email);
+
+        if ($result['login_error'] < 2) {
+            $result['login_error']++;
+        } else {
+            $dataEmail = [
+                'reset_link' => "",
+            ];
+
+            $this->sendWarningEmail($email, $dataEmail);
+
+            $result['login_error'] = 0;
+        }
+
+        $loginModel->updateLoginError($email, $result['login_error']);
     }
 
     private function createUserSession($return): void

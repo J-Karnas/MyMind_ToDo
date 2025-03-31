@@ -52,8 +52,20 @@ class RegisterController extends AbstractController
             $this->forwarding("/register");
         }
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-        if ($registerModel->UserAdd($data)) {
-            $_SESSION["error"] = "Konto zostało utworzone!";
+
+        $token = bin2hex(random_bytes(32));
+
+        $dataEmail = [
+            'name' => $data['userName'],
+            'activationLink' => "http://mymind.local/verify?token=" . $token,
+        ];
+
+
+        if ($registerModel->UserAdd($data, $token)) {
+
+            $this->sendWelcomeEmail($data['email'], $dataEmail);
+
+            $_SESSION["error"] = "Konto zostało utworzone. Sprawdź adres email!";
             $this->forwarding("/login");
         } else {
             $_SESSION["error"] = "Nie udało się utworzyć konta";

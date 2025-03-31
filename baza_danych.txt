@@ -5,6 +5,8 @@ CREATE TABLE users (
     email VARCHAR(50) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     login_error INT,
+    activation_token VARCHAR(64) NOT NULL,
+    is_active VARCHAR(10) NOT NULL,
     last_login DATETIME NOT NULL,
     created_at DATETIME NOT NULL
 );

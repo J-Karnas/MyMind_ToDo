@@ -52,6 +52,10 @@ $router->post("/delNote", "notesController@delNote");
 
 $router->get("/task/date", "ViewTasksController@dateTask");
 
+$router->get("/verify", "ActivationController@verify");
+$router->get("/verify/active", "ActivationController@activeAccountRender");
+$router->get("/verify/error", "ActivationController@tokenErrorRender");
+
 $router->get("/logout", "LoginController@logout");
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
