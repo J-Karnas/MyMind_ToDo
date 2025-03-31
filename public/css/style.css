@@ -1243,20 +1243,14 @@ li {
   margin-bottom: 15px;
 }
 .register-page__input {
-  width: 260px;
+  width: 280px;
   margin-bottom: 10px;
 }
 .register-page__btn {
   margin-top: 5px;
 }
 .register-page__description {
-  display: none;
   padding-top: 15px;
-}
-@media only screen and (max-width: 600px) {
-  .register-page__description {
-    display: inline;
-  }
 }
 .register-page__description--grey {
   color: rgba(12, 11, 11, 0.5);
@@ -1291,26 +1285,23 @@ li {
   margin-bottom: 15px;
 }
 .login-page__input {
-  width: 260px;
+  width: 280px;
   margin-bottom: 10px;
 }
 .login-page__btn {
   margin-top: 5px;
 }
 .login-page__description {
-  display: none;
   padding-top: 15px;
-}
-@media only screen and (max-width: 600px) {
-  .login-page__description {
-    display: inline;
-  }
 }
 .login-page__description--grey {
   color: rgba(12, 11, 11, 0.5);
 }
 .login-page__login-btn {
   text-decoration: none;
+}
+.login-page__forget-pwd {
+  margin-top: 10px;
 }
 
 .main {

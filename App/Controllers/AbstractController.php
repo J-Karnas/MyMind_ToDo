@@ -51,6 +51,12 @@ abstract class AbstractController
         return $mailer->send($to, 'Ostrzezenie!', 'warningEmailTemplate', $data);
     }
 
+    protected function sendPwdResetEmail(string $to, array $data)
+    {
+        $mailer = new Mailer();
+        return $mailer->send($to, 'Reset hasla', 'resetPwdEmailTemplate', $data);
+    }
+
     protected function respond($data, $status = 200)
     {
         http_response_code($status);

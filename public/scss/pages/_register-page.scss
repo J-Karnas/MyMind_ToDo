@@ -21,7 +21,7 @@
   }
 
   &__input {
-    width: 260px;
+    width: 280px;
     margin-bottom: 10px;
   }
 
@@ -30,12 +30,7 @@
   }
 
   &__description {
-    display: none;
     padding-top: 15px;
-
-    @media only screen and (max-width: $breakpoint-mobile) {
-      display: inline;
-    }
 
     &--grey {
       color: $grey-text-color;

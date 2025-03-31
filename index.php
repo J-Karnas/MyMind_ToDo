@@ -56,6 +56,11 @@ $router->get("/verify", "ActivationController@verify");
 $router->get("/verify/active", "ActivationController@activeAccountRender");
 $router->get("/verify/error", "ActivationController@tokenErrorRender");
 
+$router->get("/pwd/reset", "PwdResetController@pwdResetemailRender");
+$router->post("/pwd/reset", "PwdResetController@resetPWD");
+$router->post("/pwd/sendToken", "PwdResetController@sendResetEmail");
+$router->get("/reset-password", "PwdResetController@reset");
+
 $router->get("/logout", "LoginController@logout");
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

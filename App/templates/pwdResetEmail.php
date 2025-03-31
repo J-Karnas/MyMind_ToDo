@@ -18,16 +18,15 @@
     <header class="header-logout">
         <h1 class="header-logout__title">MyMind</h1>
         <div class="header-logout__buttons">
+            <a class="header-logout__login header-logout__login--hidden button" href="/login">Zaloguj się</a>
+            <a class="header-logout__register header-logout__register--hidden button" href="/register">Zarejestruj się</a>
         </div>
     </header>
 
-    <form class="login-page__form" action="/login" method="post">
-        <p class="login-page__title">Zaloguj się</p>
+    <form class="login-page__form" action="/pwd/sendToken" method="post">
+        <p class="login-page__title">Reset hasła</p>
         <input class="login-page__input input" type="text" name="email" placeholder="Email" required>
-        <input class="login-page__input input" type="password" name="password" placeholder="Hasło" required>
-        <button class="login-page__btn button" type="submit">Zaloguj się</button>
-        <p class="login-page__description login-page__description--show"><span class="login-page__description--grey">Nie masz jeszcze konta? </span> <a class="login-page__login-btn" href="/register">Zarejestruj się!</a></p>
-        <a href="/pwd/reset" class="login-page__forget-pwd">Nie pamiętasz hasła?</a>
+        <button class="login-page__btn button" type="submit">Wyślij email</button>
     </form>
 </body>
 
